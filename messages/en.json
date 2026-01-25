@@ -22,7 +22,62 @@
   "about": {
     "title": "About Goldie XO",
     "teaser": "Born and raised in the heart of New York City, DJ Goldie XO brings an electrifying fusion of EDM and Latin House to stages worldwide. With a signature sound that blends pulsating beats with Latin rhythms, Goldie has become a force in the underground club scene and beyond.",
-    "readMore": "Read More"
+    "readMore": "Read More",
+    "headline": "The Beat Behind the Name",
+    "bio": {
+      "paragraph1": "Born and raised in the vibrant streets of New York City, DJ Goldie XO discovered her passion for music at an early age. Growing up surrounded by the diverse sounds of the city—from underground Latin clubs to rooftop EDM parties—she developed a unique ear for rhythm and energy that would define her career.",
+      "paragraph2": "Her journey into DJing began in Brooklyn's underground scene, where she honed her craft spinning at intimate venues and warehouse parties. It was here that Goldie XO perfected her signature sound: a high-energy fusion of EDM's pulsating beats with the infectious rhythms of Latin House. Her sets became legendary for their ability to make crowds move, blending genres seamlessly while maintaining an electrifying atmosphere.",
+      "paragraph3": "Today, DJ Goldie XO has evolved from underground sensation to international artist, performing at major festivals and clubs across the globe. Yet she remains deeply connected to her NYC roots, continuing to champion the sounds and culture that shaped her. Beyond the decks, she's also an author, sharing her journey and insights in her upcoming memoir.",
+      "quote": "Music isn't just what I do—it's who I am. Every beat, every drop, every moment on stage is about creating a connection that transcends language and borders."
+    },
+    "stats": {
+      "title": "By The Numbers",
+      "based": "Based in NYC",
+      "genre": "EDM / Latin House",
+      "experience": "10+ Years Experience",
+      "shows": "500+ Shows Worldwide",
+      "festivals": "Featured at 50+ Festivals"
+    },
+    "venues": {
+      "title": "Notable Venues & Festivals",
+      "list": [
+        "Electric Daisy Carnival (EDC)",
+        "Tomorrowland",
+        "Ultra Music Festival",
+        "Output Brooklyn",
+        "Pacha NYC",
+        "Space Miami",
+        "Amnesia Ibiza",
+        "Fabric London"
+      ]
+    }
+  },
+  "contact": {
+    "title": "Get In Touch",
+    "subtitle": "Let's Connect",
+    "description": "Whether you're looking to book Goldie XO for your next event, have a press inquiry, or just want to say hello, we'd love to hear from you.",
+    "form": {
+      "name": "Your Name",
+      "email": "Your Email",
+      "subject": "Subject",
+      "message": "Your Message",
+      "subjectBookings": "Bookings",
+      "subjectPress": "Press",
+      "subjectGeneral": "General",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully! We'll get back to you soon.",
+      "error": "Something went wrong. Please try again."
+    },
+    "info": {
+      "title": "Direct Contact",
+      "bookings": "Bookings",
+      "bookingsEmail": "bookings@goldiexo.com",
+      "management": "Management",
+      "managementEmail": "management@goldiexo.com",
+      "press": "Press Inquiries",
+      "pressEmail": "press@goldiexo.com"
+    }
   },
   "currentlySpinning": {
     "title": "Currently Spinning",

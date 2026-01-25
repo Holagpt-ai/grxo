@@ -22,7 +22,62 @@
   "about": {
     "title": "Acerca de Goldie XO",
     "teaser": "Nacida y criada en el corazón de la ciudad de Nueva York, DJ Goldie XO trae una fusión electrizante de EDM y Latin House a escenarios de todo el mundo. Con un sonido característico que mezcla ritmos pulsantes con ritmos latinos, Goldie se ha convertido en una fuerza en la escena de clubes underground y más allá.",
-    "readMore": "Leer Más"
+    "readMore": "Leer Más",
+    "headline": "El Ritmo Detrás del Nombre",
+    "bio": {
+      "paragraph1": "Nacida y criada en las vibrantes calles de la ciudad de Nueva York, DJ Goldie XO descubrió su pasión por la música a una edad temprana. Creciendo rodeada de los diversos sonidos de la ciudad, desde clubes latinos underground hasta fiestas de EDM en azoteas, desarrolló un oído único para el ritmo y la energía que definiría su carrera.",
+      "paragraph2": "Su viaje en el DJing comenzó en la escena underground de Brooklyn, donde perfeccionó su oficio en lugares íntimos y fiestas en almacenes. Fue aquí donde Goldie XO perfeccionó su sonido característico: una fusión de alta energía de los ritmos pulsantes del EDM con los ritmos infecciosos del Latin House. Sus sets se volvieron legendarios por su capacidad de hacer mover a las multitudes, mezclando géneros sin problemas mientras mantenía una atmósfera electrizante.",
+      "paragraph3": "Hoy, DJ Goldie XO ha evolucionado de sensación underground a artista internacional, actuando en festivales y clubes importantes en todo el mundo. Sin embargo, permanece profundamente conectada con sus raíces de NYC, continuando defendiendo los sonidos y la cultura que la formaron. Más allá de las tornamesas, también es autora, compartiendo su viaje y conocimientos en sus memorias próximas.",
+      "quote": "La música no es solo lo que hago, es quien soy. Cada ritmo, cada caída, cada momento en el escenario se trata de crear una conexión que trasciende el idioma y las fronteras."
+    },
+    "stats": {
+      "title": "En Números",
+      "based": "Basada en NYC",
+      "genre": "EDM / Latin House",
+      "experience": "Más de 10 Años de Experiencia",
+      "shows": "Más de 500 Shows en Todo el Mundo",
+      "festivals": "Presentada en Más de 50 Festivales"
+    },
+    "venues": {
+      "title": "Lugares y Festivales Notables",
+      "list": [
+        "Electric Daisy Carnival (EDC)",
+        "Tomorrowland",
+        "Ultra Music Festival",
+        "Output Brooklyn",
+        "Pacha NYC",
+        "Space Miami",
+        "Amnesia Ibiza",
+        "Fabric London"
+      ]
+    }
+  },
+  "contact": {
+    "title": "Ponte en Contacto",
+    "subtitle": "Conectémonos",
+    "description": "Ya sea que estés buscando contratar a Goldie XO para tu próximo evento, tengas una consulta de prensa o simplemente quieras saludar, nos encantaría saber de ti.",
+    "form": {
+      "name": "Tu Nombre",
+      "email": "Tu Correo",
+      "subject": "Asunto",
+      "message": "Tu Mensaje",
+      "subjectBookings": "Contrataciones",
+      "subjectPress": "Prensa",
+      "subjectGeneral": "General",
+      "send": "Enviar Mensaje",
+      "sending": "Enviando...",
+      "success": "¡Mensaje enviado con éxito! Te responderemos pronto.",
+      "error": "Algo salió mal. Por favor, inténtalo de nuevo."
+    },
+    "info": {
+      "title": "Contacto Directo",
+      "bookings": "Contrataciones",
+      "bookingsEmail": "bookings@goldiexo.com",
+      "management": "Gestión",
+      "managementEmail": "management@goldiexo.com",
+      "press": "Consultas de Prensa",
+      "pressEmail": "press@goldiexo.com"
+    }
   },
   "currentlySpinning": {
     "title": "Sonando Ahora",
