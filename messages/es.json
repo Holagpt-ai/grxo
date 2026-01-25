@@ -14,16 +14,37 @@
   },
   "hero": {
     "headline": "DJ Goldie XO",
-    "subheadline": "Trayendo el ritmo de NYC al mundo",
+    "subheadline": "Vibras EDM y Latin House desde NYC",
     "description": "Experimenta la fusión de EDM y Latin House como nunca antes",
     "listenNow": "Escuchar Ahora",
     "preorderBook": "Preordenar el Libro"
   },
+  "about": {
+    "title": "Acerca de Goldie XO",
+    "teaser": "Nacida y criada en el corazón de la ciudad de Nueva York, DJ Goldie XO trae una fusión electrizante de EDM y Latin House a escenarios de todo el mundo. Con un sonido característico que mezcla ritmos pulsantes con ritmos latinos, Goldie se ha convertido en una fuerza en la escena de clubes underground y más allá.",
+    "readMore": "Leer Más"
+  },
+  "currentlySpinning": {
+    "title": "Sonando Ahora",
+    "subtitle": "Última Mezcla"
+  },
+  "book": {
+    "title": "El Ritmo Continúa",
+    "subtitle": "Una Memoria",
+    "description": "Desde las calles de NYC hasta los escenarios más grandes del mundo, descubre el viaje de DJ Goldie XO. Una historia de pasión, ritmo y rompiendo barreras.",
+    "preorder": "Preordenar Ahora",
+    "availableSoon": "Disponible Pronto"
+  },
   "footer": {
-    "newsletter": "Suscríbete al Boletín",
+    "newsletter": "Mantente Conectado",
+    "newsletterDescription": "Suscríbete para recibir las últimas mezclas, fechas de tour y contenido exclusivo",
     "emailPlaceholder": "Ingresa tu correo",
     "subscribe": "Suscribirse",
-    "rights": "Todos los derechos reservados"
+    "subscribeSuccess": "¡Gracias por suscribirte!",
+    "subscribeError": "Algo salió mal. Por favor, inténtalo de nuevo.",
+    "rights": "Todos los derechos reservados",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio"
   },
   "language": {
     "english": "Inglés",
