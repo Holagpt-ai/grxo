@@ -1,0 +1,32 @@
+{
+  "site": {
+    "title": "DJ Goldie XO - Sitio Oficial",
+    "tagline": "La Mejor DJ de EDM y Latin House de NYC"
+  },
+  "nav": {
+    "about": "Acerca de",
+    "music": "Música",
+    "merch": "Mercancía",
+    "book": "Libro",
+    "contact": "Contacto",
+    "tourDates": "Fechas de Tour",
+    "podcast": "Podcast"
+  },
+  "hero": {
+    "headline": "DJ Goldie XO",
+    "subheadline": "Trayendo el ritmo de NYC al mundo",
+    "description": "Experimenta la fusión de EDM y Latin House como nunca antes",
+    "listenNow": "Escuchar Ahora",
+    "preorderBook": "Preordenar el Libro"
+  },
+  "footer": {
+    "newsletter": "Suscríbete al Boletín",
+    "emailPlaceholder": "Ingresa tu correo",
+    "subscribe": "Suscribirse",
+    "rights": "Todos los derechos reservados"
+  },
+  "language": {
+    "english": "Inglés",
+    "spanish": "Español"
+  }
+}
