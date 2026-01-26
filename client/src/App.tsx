@@ -13,6 +13,7 @@ import Music from "./pages/Music";
 import Podcast from "./pages/Podcast";
 import Merch from "./pages/Merch";
 import Book from "./pages/Book";
+import TourDates from "./pages/TourDates";
 
 function Router() {
   return (
@@ -25,6 +26,7 @@ function Router() {
       <Route path={"/merch"} component={Merch} />
       <Route path={"/book"} component={Book} />
       <Route path={"/podcast"} component={Podcast} />
+      <Route path={"/tour-dates"} component={TourDates} />
       <Route path={"/contact"} component={Contact} />
       <Route path={"/404"} component={NotFound} />
         {/* Final fallback route */}

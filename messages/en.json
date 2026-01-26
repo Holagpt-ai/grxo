@@ -219,6 +219,18 @@
     "privacy": "Privacy Policy",
     "terms": "Terms of Service"
   },
+  "tourDates": {
+    "title": "Tour Dates",
+    "subtitle": "Catch Me Live",
+    "description": "Experience the energy of DJ Goldie XO live. From intimate club nights to massive festival stages, join the party at a city near you.",
+    "upcoming": "Upcoming Shows",
+    "past": "Past Shows",
+    "featured": "Featured Show",
+    "soldOut": "Sold Out",
+    "getTickets": "Get Tickets",
+    "moreInfo": "More Info",
+    "noShows": "No upcoming shows at the moment. Check back soon!"
+  },
   "language": {
     "english": "English",
     "spanish": "Spanish"

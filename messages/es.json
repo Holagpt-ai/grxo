@@ -219,6 +219,18 @@
     "privacy": "Política de Privacidad",
     "terms": "Términos de Servicio"
   },
+  "tourDates": {
+    "title": "Fechas de Tour",
+    "subtitle": "Encuéntrame en Vivo",
+    "description": "Experimenta la energía de DJ Goldie XO en vivo. Desde noches íntimas de club hasta escenarios masivos de festivales, únete a la fiesta en una ciudad cerca de ti.",
+    "upcoming": "Próximos Shows",
+    "past": "Shows Pasados",
+    "featured": "Show Destacado",
+    "soldOut": "Agotado",
+    "getTickets": "Obtener Boletos",
+    "moreInfo": "Más Información",
+    "noShows": "No hay shows próximos en este momento. ¡Vuelve pronto!"
+  },
   "language": {
     "english": "Inglés",
     "spanish": "Español"
