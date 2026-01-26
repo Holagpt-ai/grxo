@@ -52,6 +52,58 @@
       ]
     }
   },
+  "music": {
+    "title": "Listen to Goldie XO",
+    "subtitle": "Explore the Sound",
+    "description": "From high-energy EDM to Latin House grooves, dive into the sonic world of DJ Goldie XO",
+    "tabs": {
+      "featured": "Featured",
+      "latestMixes": "Latest Mixes",
+      "latinHouse": "Latin House",
+      "edm": "EDM"
+    },
+    "featured": {
+      "title": "Now Playing",
+      "track": "Latin House Fusion Mix 2024"
+    },
+    "listenOn": "Listen On",
+    "platforms": {
+      "spotify": "Spotify",
+      "soundcloud": "SoundCloud",
+      "appleMusic": "Apple Music",
+      "youtube": "YouTube",
+      "beatport": "Beatport",
+      "tidal": "Tidal"
+    },
+    "releases": {
+      "title": "Latest Releases",
+      "playNow": "Play Now",
+      "viewMore": "View More"
+    }
+  },
+  "podcast": {
+    "title": "The Goldie XO Podcast",
+    "subtitle": "Behind the Decks",
+    "description": "Join DJ Goldie XO for intimate conversations about music, culture, and the journey from underground clubs to global stages",
+    "listenOn": "Listen On",
+    "filters": {
+      "all": "All Episodes",
+      "clubStories": "Club Stories",
+      "producerChats": "Producer Chats",
+      "latinHouse": "Latin House Focus"
+    },
+    "episodes": {
+      "title": "Episodes",
+      "duration": "Duration",
+      "play": "Play Episode",
+      "readMore": "Read More"
+    },
+    "bookPromo": {
+      "title": "From the Book",
+      "description": "Exclusive excerpts from 'The Beat Goes On' - Available for preorder now",
+      "cta": "Preorder the Book"
+    }
+  },
   "contact": {
     "title": "Get In Touch",
     "subtitle": "Let's Connect",

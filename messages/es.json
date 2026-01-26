@@ -52,6 +52,58 @@
       ]
     }
   },
+  "music": {
+    "title": "Escucha a Goldie XO",
+    "subtitle": "Explora el Sonido",
+    "description": "Desde EDM de alta energía hasta grooves de Latin House, sumérgete en el mundo sonoro de DJ Goldie XO",
+    "tabs": {
+      "featured": "Destacado",
+      "latestMixes": "Últimas Mezclas",
+      "latinHouse": "Latin House",
+      "edm": "EDM"
+    },
+    "featured": {
+      "title": "Reproduciendo Ahora",
+      "track": "Mezcla Latin House Fusion 2024"
+    },
+    "listenOn": "Escuchar En",
+    "platforms": {
+      "spotify": "Spotify",
+      "soundcloud": "SoundCloud",
+      "appleMusic": "Apple Music",
+      "youtube": "YouTube",
+      "beatport": "Beatport",
+      "tidal": "Tidal"
+    },
+    "releases": {
+      "title": "Últimos Lanzamientos",
+      "playNow": "Reproducir Ahora",
+      "viewMore": "Ver Más"
+    }
+  },
+  "podcast": {
+    "title": "El Podcast de Goldie XO",
+    "subtitle": "Detrás de las Tornamesas",
+    "description": "Únete a DJ Goldie XO para conversaciones íntimas sobre música, cultura y el viaje desde clubes underground hasta escenarios globales",
+    "listenOn": "Escuchar En",
+    "filters": {
+      "all": "Todos los Episodios",
+      "clubStories": "Historias de Club",
+      "producerChats": "Charlas de Productores",
+      "latinHouse": "Enfoque Latin House"
+    },
+    "episodes": {
+      "title": "Episodios",
+      "duration": "Duración",
+      "play": "Reproducir Episodio",
+      "readMore": "Leer Más"
+    },
+    "bookPromo": {
+      "title": "Del Libro",
+      "description": "Extractos exclusivos de 'El Ritmo Continúa' - Disponible para preordenar ahora",
+      "cta": "Preordenar el Libro"
+    }
+  },
   "contact": {
     "title": "Ponte en Contacto",
     "subtitle": "Conectémonos",
