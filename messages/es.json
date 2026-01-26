@@ -104,6 +104,79 @@
       "cta": "Preordenar el Libro"
     }
   },
+  "merch": {
+    "title": "Mercancía Oficial",
+    "subtitle": "Viste la Vibra",
+    "description": "Representa la marca Goldie XO con mercancía exclusiva con diseños característicos y el icónico logo del corazón dorado",
+    "filters": {
+      "all": "Todos los Artículos",
+      "apparel": "Ropa",
+      "accessories": "Accesorios",
+      "limited": "Edición Limitada"
+    },
+    "addToCart": "Agregar al Carrito",
+    "soldOut": "Agotado",
+    "limitedEdition": "Edición Limitada",
+    "newArrival": "Nueva Llegada",
+    "comingSoon": "Próximamente"
+  },
+  "book": {
+    "title": "El Ritmo Continúa",
+    "subtitle": "Una Memoria de DJ Goldie XO",
+    "description": "Desde las calles de NYC hasta los escenarios más grandes del mundo, descubre el viaje de DJ Goldie XO. Una historia de pasión, ritmo y rompiendo barreras.",
+    "preorder": "Preordenar Ahora",
+    "availableSoon": "Disponible Pronto",
+    "hero": {
+      "tagline": "Una Historia de Música, Pasión y Rompiendo Barreras",
+      "releaseDate": "Disponible Primavera 2024"
+    },
+    "synopsis": {
+      "title": "Acerca del Libro",
+      "text": "En 'El Ritmo Continúa', DJ Goldie XO lleva a los lectores en un viaje íntimo a través de su vida en la música. Desde sus primeros días descubriendo el ritmo en los diversos paisajes sonoros de la ciudad de Nueva York hasta convertirse en una fuerza en las escenas globales de EDM y Latin House, esta memoria revela la pasión, las luchas y los triunfos detrás de las tornamesas. Con honestidad cruda y energía contagiosa, Goldie comparte las historias que dieron forma a su sonido y las lecciones aprendidas de una década moviendo multitudes en todo el mundo."
+    },
+    "purchase": {
+      "title": "Obtén Tu Copia",
+      "preorderNow": "Preordenar Ahora",
+      "buyOnAmazon": "Comprar en Amazon",
+      "buyOnBarnesNoble": "Comprar en Barnes & Noble",
+      "buyOnAppleBooks": "Comprar en Apple Books"
+    },
+    "endorsements": {
+      "title": "Lo Que Dice la Gente",
+      "quotes": [
+        {
+          "text": "Un viaje crudo y electrizante a través del mundo de la música electrónica. La historia de Goldie es tan poderosa como sus ritmos.",
+          "author": "DJ Mag"
+        },
+        {
+          "text": "Una historia inspiradora de pasión y perseverancia. Una lectura obligada para cualquiera que ame la música.",
+          "author": "Billboard"
+        },
+        {
+          "text": "La memoria de Goldie XO captura la esencia de lo que significa vivir para la música.",
+          "author": "Mixmag"
+        }
+      ]
+    },
+    "inside": {
+      "title": "Dentro del Libro",
+      "chapters": [
+        "Capítulo 1: Ritmos de Brooklyn - Creciendo en la escena underground de NYC",
+        "Capítulo 2: Encontrando Mi Sonido - El nacimiento de la fusión Latin House",
+        "Capítulo 3: Noches de Almacén - Historias de los primeros días",
+        "Capítulo 4: Rompiendo Barreras - De DJ local a artista internacional",
+        "Capítulo 5: Escenarios de Festivales - Actuando en los eventos más grandes del mundo",
+        "Capítulo 6: El Proceso Creativo - Cómo hago mi música",
+        "Capítulo 7: Detrás de las Tornamesas - Vida en gira",
+        "Capítulo 8: El Ritmo Continúa - Lo que sigue"
+      ]
+    },
+    "podcastPromo": {
+      "title": "Escucha Más en el Podcast",
+      "description": "Profundiza en las historias del libro con episodios exclusivos del podcast",
+      "cta": "Escuchar Ahora"
+    }
+  },
   "contact": {
     "title": "Ponte en Contacto",
     "subtitle": "Conectémonos",
@@ -134,13 +207,6 @@
   "currentlySpinning": {
     "title": "Sonando Ahora",
     "subtitle": "Última Mezcla"
-  },
-  "book": {
-    "title": "El Ritmo Continúa",
-    "subtitle": "Una Memoria",
-    "description": "Desde las calles de NYC hasta los escenarios más grandes del mundo, descubre el viaje de DJ Goldie XO. Una historia de pasión, ritmo y rompiendo barreras.",
-    "preorder": "Preordenar Ahora",
-    "availableSoon": "Disponible Pronto"
   },
   "footer": {
     "newsletter": "Mantente Conectado",

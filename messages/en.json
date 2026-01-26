@@ -104,6 +104,79 @@
       "cta": "Preorder the Book"
     }
   },
+  "merch": {
+    "title": "Official Merch",
+    "subtitle": "Wear the Vibe",
+    "description": "Rep the Goldie XO brand with exclusive merchandise featuring signature designs and the iconic gold heart logo",
+    "filters": {
+      "all": "All Items",
+      "apparel": "Apparel",
+      "accessories": "Accessories",
+      "limited": "Limited Edition"
+    },
+    "addToCart": "Add to Cart",
+    "soldOut": "Sold Out",
+    "limitedEdition": "Limited Edition",
+    "newArrival": "New Arrival",
+    "comingSoon": "Coming Soon"
+  },
+  "book": {
+    "title": "The Beat Goes On",
+    "subtitle": "A Memoir by DJ Goldie XO",
+    "description": "From the streets of NYC to the world's biggest stages, discover the journey of DJ Goldie XO. A story of passion, rhythm, and breaking boundaries.",
+    "preorder": "Preorder Now",
+    "availableSoon": "Available Soon",
+    "hero": {
+      "tagline": "A Story of Music, Passion, and Breaking Boundaries",
+      "releaseDate": "Available Spring 2024"
+    },
+    "synopsis": {
+      "title": "About the Book",
+      "text": "In 'The Beat Goes On,' DJ Goldie XO takes readers on an intimate journey through her life in music. From her early days discovering rhythm in the diverse soundscapes of New York City to becoming a force in the global EDM and Latin House scenes, this memoir reveals the passion, struggles, and triumphs behind the decks. With raw honesty and infectious energy, Goldie shares the stories that shaped her sound and the lessons learned from a decade of moving crowds across the world."
+    },
+    "purchase": {
+      "title": "Get Your Copy",
+      "preorderNow": "Preorder Now",
+      "buyOnAmazon": "Buy on Amazon",
+      "buyOnBarnesNoble": "Buy on Barnes & Noble",
+      "buyOnAppleBooks": "Buy on Apple Books"
+    },
+    "endorsements": {
+      "title": "What People Are Saying",
+      "quotes": [
+        {
+          "text": "A raw, electrifying journey through the world of electronic music. Goldie's story is as powerful as her beats.",
+          "author": "DJ Mag"
+        },
+        {
+          "text": "An inspiring tale of passion and perseverance. A must-read for anyone who loves music.",
+          "author": "Billboard"
+        },
+        {
+          "text": "Goldie XO's memoir captures the essence of what it means to live for the music.",
+          "author": "Mixmag"
+        }
+      ]
+    },
+    "inside": {
+      "title": "Inside the Book",
+      "chapters": [
+        "Chapter 1: Brooklyn Beats - Growing up in NYC's underground scene",
+        "Chapter 2: Finding My Sound - The birth of Latin House fusion",
+        "Chapter 3: Warehouse Nights - Stories from the early days",
+        "Chapter 4: Breaking Through - From local DJ to international artist",
+        "Chapter 5: Festival Stages - Performing at the world's biggest events",
+        "Chapter 6: The Creative Process - How I make my music",
+        "Chapter 7: Behind the Decks - Life on tour",
+        "Chapter 8: The Beat Goes On - What's next"
+      ]
+    },
+    "podcastPromo": {
+      "title": "Hear More on the Podcast",
+      "description": "Dive deeper into the stories from the book with exclusive podcast episodes",
+      "cta": "Listen Now"
+    }
+  },
   "contact": {
     "title": "Get In Touch",
     "subtitle": "Let's Connect",
@@ -134,13 +207,6 @@
   "currentlySpinning": {
     "title": "Currently Spinning",
     "subtitle": "Latest Mix"
-  },
-  "book": {
-    "title": "The Beat Goes On",
-    "subtitle": "A Memoir",
-    "description": "From the streets of NYC to the world's biggest stages, discover the journey of DJ Goldie XO. A story of passion, rhythm, and breaking boundaries.",
-    "preorder": "Preorder Now",
-    "availableSoon": "Available Soon"
   },
   "footer": {
     "newsletter": "Stay Connected",

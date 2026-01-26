@@ -11,6 +11,8 @@ import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Music from "./pages/Music";
 import Podcast from "./pages/Podcast";
+import Merch from "./pages/Merch";
+import Book from "./pages/Book";
 
 function Router() {
   return (
@@ -20,6 +22,8 @@ function Router() {
       <Route path={"/"} component={Home} />
       <Route path={"/about"} component={About} />
       <Route path={"/music"} component={Music} />
+      <Route path={"/merch"} component={Merch} />
+      <Route path={"/book"} component={Book} />
       <Route path={"/podcast"} component={Podcast} />
       <Route path={"/contact"} component={Contact} />
       <Route path={"/404"} component={NotFound} />
