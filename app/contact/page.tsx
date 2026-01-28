@@ -2,14 +2,31 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import dynamic from 'next/dynamic';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { GoldHeart } from '@/components/GoldHeart';
-import { Footer } from '@/components/Footer';
+
+// Lazy load Footer component
+const Footer = dynamic(() => import('@/components/Footer').then(mod => ({ default: mod.Footer })), {
+  ssr: true,
+});
+
+// Lazy load Calendly widget
+const CalendlyWidget = dynamic(() => import('@/components/CalendlyWidget'), {
+  ssr: false,
+  loading: () => (
+    <div className="bg-gray-900 rounded-lg p-8 border border-amber-500/30 animate-pulse">
+      <div className="h-12 bg-gray-800 rounded mb-4" />
+      <div className="h-96 bg-gray-800 rounded" />
+    </div>
+  ),
+});
+
 import { toast } from 'sonner';
-import { Mail, User, Building2 } from 'lucide-react';
+import { Mail, User, Building2, Calendar } from 'lucide-react';
 
 export default function Contact() {
   const t = useTranslations('contact');
@@ -52,7 +69,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-black text-white">
       {/* Hero Header */}
       <section className="relative py-20 overflow-hidden">
         {/* Background effects */}
@@ -67,6 +84,27 @@ export default function Contact() {
           </h1>
           <p className="text-xl text-amber-300 font-semibold mb-4">{t('subtitle')}</p>
           <p className="text-gray-400 max-w-2xl mx-auto">{t('description')}</p>
+        </div>
+      </section>
+
+      {/* Booking Section with Calendly */}
+      <section className="py-20 bg-gradient-to-b from-black via-gray-900 to-black border-y border-amber-500/20">
+        <div className="container relative z-10">
+          <div className="max-w-5xl mx-auto">
+            <div className="text-center mb-12">
+              <div className="flex items-center justify-center gap-3 mb-4">
+                <Calendar className="text-amber-400" size={32} />
+                <h2 className="text-4xl font-bold text-amber-400">Book a Show</h2>
+              </div>
+              <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+                Schedule a consultation or book DJ Goldie XO for your next event. Select a time that works for you.
+              </p>
+            </div>
+            
+            <div className="bg-gradient-to-br from-gray-900 to-black border border-amber-500/30 rounded-lg p-6 shadow-[0_0_40px_rgba(251,191,36,0.15)]">
+              <CalendlyWidget url="https://calendly.com/djgoldiexo/booking" height="700px" />
+            </div>
+          </div>
         </div>
       </section>
 
@@ -236,6 +274,6 @@ export default function Contact() {
 
       {/* Footer */}
       <Footer />
-    </div>
+    </main>
   );
 }

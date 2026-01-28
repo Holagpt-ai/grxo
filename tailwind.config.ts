@@ -12,6 +12,20 @@ export default {
         sans: ['Montserrat', 'system-ui', 'sans-serif'],
         body: ['Roboto', 'system-ui', 'sans-serif'],
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            maxWidth: 'none',
+            color: 'rgb(209 213 219)',
+            lineHeight: '1.75',
+            '--tw-prose-headings': 'rgb(251 191 36)',
+            '--tw-prose-links': 'rgb(251 191 36)',
+            '--tw-prose-bold': 'rgb(255 255 255)',
+            '--tw-prose-quotes': 'rgb(251 191 36)',
+            '--tw-prose-quote-borders': 'rgb(251 191 36)',
+          },
+        },
+      },
       colors: {
         magenta: {
           500: '#ec4899',

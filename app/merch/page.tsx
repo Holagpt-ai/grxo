@@ -2,11 +2,17 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { GoldHeart } from '@/components/GoldHeart';
-import { Footer } from '@/components/Footer';
 import { ShoppingCart } from 'lucide-react';
 import { toast } from 'sonner';
+
+// Lazy load Footer component
+const Footer = dynamic(() => import('@/components/Footer').then(mod => ({ default: mod.Footer })), {
+  ssr: true,
+});
 
 const products = [
   {
@@ -17,6 +23,7 @@ const products = [
     image: '/images/picgold.png',
     badge: 'newArrival',
     inStock: true,
+    shopifyUrl: 'https://shop.djgoldiexo.com/products/gold-heart-logo-tee', // Placeholder Shopify URL
   },
   {
     id: 2,
@@ -26,6 +33,7 @@ const products = [
     image: '/images/picgold.png',
     badge: 'limitedEdition',
     inStock: true,
+    shopifyUrl: 'https://shop.djgoldiexo.com/products/neon-nights-hoodie', // Placeholder Shopify URL
   },
   {
     id: 3,
@@ -35,6 +43,7 @@ const products = [
     image: '/images/picgold.png',
     badge: null,
     inStock: true,
+    shopifyUrl: 'https://shop.djgoldiexo.com/products/latin-house-fusion-tee', // Placeholder Shopify URL
   },
   {
     id: 4,
@@ -44,6 +53,7 @@ const products = [
     image: '/images/picgold.png',
     badge: 'newArrival',
     inStock: true,
+    shopifyUrl: 'https://shop.djgoldiexo.com/products/gxo-snapback-cap', // Placeholder Shopify URL
   },
   {
     id: 5,
@@ -53,6 +63,7 @@ const products = [
     image: '/images/picgold.png',
     badge: 'limitedEdition',
     inStock: false,
+    shopifyUrl: 'https://shop.djgoldiexo.com/products/abstract-vibes-hoodie', // Placeholder Shopify URL
   },
   {
     id: 6,
@@ -62,6 +73,7 @@ const products = [
     image: '/images/picgold.png',
     badge: null,
     inStock: true,
+    shopifyUrl: 'https://shop.djgoldiexo.com/products/gold-heart-enamel-pin', // Placeholder Shopify URL
   },
   {
     id: 7,
@@ -71,6 +83,7 @@ const products = [
     image: '/images/picgold.png',
     badge: null,
     inStock: true,
+    shopifyUrl: 'https://shop.djgoldiexo.com/products/nyc-vibes-long-sleeve', // Placeholder Shopify URL
   },
   {
     id: 8,
@@ -80,6 +93,7 @@ const products = [
     image: '/images/picgold.png',
     badge: 'newArrival',
     inStock: true,
+    shopifyUrl: 'https://shop.djgoldiexo.com/products/neon-logo-tote-bag', // Placeholder Shopify URL
   },
 ];
 
@@ -93,14 +107,27 @@ export default function Merch() {
     ? products.filter(p => p.badge === 'limitedEdition')
     : products.filter(p => p.category === activeFilter);
 
-  const handleAddToCart = (productName: string) => {
-    toast.success(`${productName} added to cart!`, {
-      description: 'Shopping cart functionality coming soon',
-    });
+  const handleAddToCart = (product: typeof products[0]) => {
+    if (!product.inStock) {
+      toast.error('This item is currently sold out');
+      return;
+    }
+    
+    // Open Shopify product page in new tab
+    if (product.shopifyUrl) {
+      window.open(product.shopifyUrl, '_blank', 'noopener,noreferrer');
+      toast.success(`Opening ${product.name} in shop...`, {
+        description: 'Redirecting to Shopify store',
+      });
+    } else {
+      toast.info('Shopify link coming soon!', {
+        description: 'Product will be available in the shop soon',
+      });
+    }
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-black text-white">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-amber-900/10 to-black" />
@@ -169,9 +196,14 @@ export default function Merch() {
               >
                 {/* Product Image */}
                 <div className="relative aspect-square overflow-hidden bg-gradient-to-br from-amber-500/20 to-yellow-600/20">
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center opacity-40 group-hover:opacity-60 transition-opacity mix-blend-overlay"
-                    style={{ backgroundImage: `url(${product.image})` }}
+                  <Image
+                    src={product.image}
+                    alt={product.name}
+                    fill
+                    className="object-cover opacity-40 group-hover:opacity-60 transition-opacity mix-blend-overlay"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                    loading="lazy"
+                    aria-hidden="true"
                   />
                   <div className="absolute inset-0 flex items-center justify-center">
                     <GoldHeart size={80} className="opacity-80" />
@@ -202,9 +234,9 @@ export default function Merch() {
                     <GoldHeart size={20} />
                   </div>
 
-                  {/* Add to Cart Button */}
+                  {/* Add to Cart / Buy Now Button */}
                   <Button
-                    onClick={() => handleAddToCart(product.name)}
+                    onClick={() => handleAddToCart(product)}
                     disabled={!product.inStock}
                     className="w-full bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-black font-bold disabled:opacity-50 disabled:cursor-not-allowed"
                   >
@@ -230,6 +262,6 @@ export default function Merch() {
 
       {/* Footer */}
       <Footer />
-    </div>
+    </main>
   );
 }

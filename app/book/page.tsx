@@ -1,12 +1,17 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import dynamic from 'next/dynamic';
 import { Button } from '@/components/ui/button';
 import { GoldHeart } from '@/components/GoldHeart';
-import { Footer } from '@/components/Footer';
 import { ShoppingBag, ExternalLink } from 'lucide-react';
 import Link from 'next/link';
 import { toast } from 'sonner';
+
+// Lazy load Footer component
+const Footer = dynamic(() => import('@/components/Footer').then(mod => ({ default: mod.Footer })), {
+  ssr: true,
+});
 
 export default function Book() {
   const t = useTranslations('book');
@@ -23,9 +28,9 @@ export default function Book() {
   };
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-black text-white">
       {/* Hero Section with Abstract Book Cover */}
-      <section className="relative py-20 overflow-hidden">
+      <section className="relative py-24 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/10 to-black" />
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-magenta-500/10 rounded-full blur-3xl" />
@@ -41,6 +46,8 @@ export default function Book() {
                   <div 
                     className="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-screen"
                     style={{ backgroundImage: 'url(/images/picgold.png)' }}
+                    aria-hidden="true"
+                    role="presentation"
                   />
                   <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-magenta-500/20 to-yellow-500/20" />
                   
@@ -72,7 +79,9 @@ export default function Book() {
                 {t('title')}
               </h1>
               <p className="text-2xl text-amber-300 font-semibold mb-4">{t('hero.tagline')}</p>
-              <p className="text-gray-400 text-lg mb-6">{t('description')}</p>
+              <div className="prose prose-invert prose-lg max-w-none mb-8">
+                <p className="text-gray-400 leading-relaxed">{t('description')}</p>
+              </div>
               <p className="text-amber-400 font-bold mb-8">{t('hero.releaseDate')}</p>
 
               {/* Purchase Buttons */}
@@ -92,21 +101,23 @@ export default function Book() {
       </section>
 
       {/* Synopsis Section */}
-      <section className="py-20 bg-gradient-to-b from-black via-gray-900 to-black">
-        <div className="container max-w-4xl">
-          <div className="flex items-center gap-3 mb-8">
+      <section className="py-24 bg-gradient-to-b from-black via-gray-900 to-black">
+        <div className="container max-w-4xl mx-auto px-4">
+          <div className="flex items-center gap-3 mb-10">
             <GoldHeart size={35} />
-            <h2 className="text-3xl font-bold text-amber-400">{tSynopsis('title')}</h2>
+            <h2 className="text-4xl font-bold text-amber-400">{tSynopsis('title')}</h2>
           </div>
-          <p className="text-gray-300 text-lg leading-relaxed">
-            {tSynopsis('text')}
-          </p>
+          <div className="prose prose-invert prose-lg max-w-none">
+            <p className="text-gray-300 leading-relaxed">
+              {tSynopsis('text')}
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Purchase Options */}
-      <section className="py-16 bg-gradient-to-r from-gray-900 via-black to-gray-900 border-y border-amber-500/20">
-        <div className="container max-w-4xl">
+      <section className="py-24 bg-gradient-to-r from-gray-900 via-black to-gray-900 border-y border-amber-500/20">
+        <div className="container max-w-4xl mx-auto px-4">
           <div className="flex items-center justify-center gap-3 mb-8">
             <GoldHeart size={35} />
             <h3 className="text-3xl font-bold text-amber-400">{tPurchase('title')}</h3>
@@ -166,16 +177,16 @@ export default function Book() {
       </section>
 
       {/* Endorsements */}
-      <section className="py-20 bg-gradient-to-b from-black via-gray-900 to-black">
-        <div className="container max-w-5xl">
+      <section className="py-24 bg-gradient-to-b from-black via-gray-900 to-black">
+        <div className="container max-w-5xl mx-auto px-4">
           <div className="flex items-center justify-center gap-3 mb-12">
             <GoldHeart size={35} />
-            <h3 className="text-3xl font-bold text-amber-400">{tEndorsements('title')}</h3>
+            <h3 className="text-4xl font-bold text-amber-400">{tEndorsements('title')}</h3>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[0, 1, 2].map((index) => (
               <div key={index} className="relative">
-                <div className="bg-gradient-to-br from-gray-900 to-black border border-amber-500/30 rounded-lg p-6 hover:border-amber-500 transition-all">
+                <div className="bg-gradient-to-br from-gray-900 to-black border border-amber-500/30 rounded-xl p-6 shadow-lg hover:border-amber-500 transition-all">
                   <div className="mb-4">
                     <GoldHeart size={30} />
                   </div>
@@ -194,11 +205,11 @@ export default function Book() {
       </section>
 
       {/* Inside the Book */}
-      <section className="py-20 bg-gradient-to-b from-black via-gray-900 to-black">
-        <div className="container max-w-4xl">
+      <section className="py-24 bg-gradient-to-b from-black via-gray-900 to-black">
+        <div className="container max-w-4xl mx-auto px-4">
           <div className="flex items-center gap-3 mb-12">
             <GoldHeart size={35} />
-            <h3 className="text-3xl font-bold text-amber-400">{tInside('title')}</h3>
+            <h3 className="text-4xl font-bold text-amber-400">{tInside('title')}</h3>
           </div>
           <div className="space-y-4">
             {[0, 1, 2, 3, 4, 5, 6, 7].map((index) => (
@@ -216,13 +227,15 @@ export default function Book() {
       </section>
 
       {/* Podcast Cross-Promotion */}
-      <section className="py-16 bg-gradient-to-r from-gray-900 via-black to-gray-900 border-y border-amber-500/20">
-        <div className="container max-w-4xl text-center">
-          <div className="flex items-center justify-center gap-3 mb-4">
+      <section className="py-24 bg-gradient-to-r from-gray-900 via-black to-gray-900 border-y border-amber-500/20">
+        <div className="container max-w-4xl mx-auto px-4 text-center">
+          <div className="flex items-center justify-center gap-3 mb-6">
             <GoldHeart size={40} />
-            <h3 className="text-3xl font-bold text-amber-400">{tPodcast('title')}</h3>
+            <h3 className="text-4xl font-bold text-amber-400">{tPodcast('title')}</h3>
           </div>
-          <p className="text-gray-300 mb-6">{tPodcast('description')}</p>
+          <div className="prose prose-invert prose-lg max-w-none mb-8">
+            <p className="text-gray-300 leading-relaxed">{tPodcast('description')}</p>
+          </div>
           <Link href="/podcast">
             <Button
               size="lg"
@@ -236,6 +249,6 @@ export default function Book() {
 
       {/* Footer */}
       <Footer />
-    </div>
+    </main>
   );
 }

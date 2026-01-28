@@ -1,8 +1,13 @@
 'use client';
 
 import { useTranslations } from 'next-intl';
+import dynamic from 'next/dynamic';
 import { GoldHeart } from '@/components/GoldHeart';
-import { Footer } from '@/components/Footer';
+
+// Lazy load Footer component
+const Footer = dynamic(() => import('@/components/Footer').then(mod => ({ default: mod.Footer })), {
+  ssr: true,
+});
 
 export default function About() {
   const t = useTranslations('about');
@@ -21,9 +26,9 @@ export default function About() {
   ];
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-black text-white">
       {/* Hero Header with Abstract Portrait */}
-      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden">
+      <section className="relative h-[60vh] flex items-center justify-center overflow-hidden py-16">
         {/* Background with abstract portrait */}
         <div className="absolute inset-0">
           <div 
@@ -56,7 +61,7 @@ export default function About() {
           <h1 className="text-6xl md:text-8xl font-black mb-4 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-clip-text text-transparent animate-gradient drop-shadow-[0_0_30px_rgba(251,191,36,0.5)]">
             {t('title')}
           </h1>
-          <p className="text-2xl text-amber-300 font-bold tracking-wide drop-shadow-[0_0_10px_rgba(251,191,36,0.8)]">
+          <p className="text-2xl text-amber-200 font-bold tracking-wide drop-shadow-[0_0_10px_rgba(251,191,36,0.8)]">
             {t('headline')}
           </p>
         </div>
@@ -65,7 +70,7 @@ export default function About() {
       </section>
 
       {/* Main Content - Two Column Layout */}
-      <section className="py-20 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
+      <section className="py-24 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-20 left-0 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-0 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl" />
@@ -75,23 +80,25 @@ export default function About() {
             {/* Left Column - Bio */}
             <div className="lg:col-span-2 space-y-8">
               {/* Paragraph 1 */}
-              <div className="relative">
-                <p className="text-gray-300 text-lg leading-relaxed">
+              <div className="relative prose prose-invert prose-lg max-w-none">
+                <p className="text-gray-300 leading-relaxed">
                   {t('bio.paragraph1')}
                 </p>
               </div>
 
               {/* Gold Heart Divider */}
-              <div className="flex items-center gap-4 py-4">
+              <div className="flex items-center gap-4 py-6">
                 <div className="flex-1 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent" />
                 <GoldHeart size={30} />
                 <div className="flex-1 h-px bg-gradient-to-r from-transparent via-amber-500/50 to-transparent" />
               </div>
 
               {/* Paragraph 2 */}
-              <p className="text-gray-300 text-lg leading-relaxed">
-                {t('bio.paragraph2')}
-              </p>
+              <div className="prose prose-invert prose-lg max-w-none">
+                <p className="text-gray-300 leading-relaxed">
+                  {t('bio.paragraph2')}
+                </p>
+              </div>
 
               {/* Pull Quote */}
               <blockquote className="relative my-12 pl-8 border-l-4 border-amber-500">
@@ -172,6 +179,6 @@ export default function About() {
 
       {/* Footer */}
       <Footer />
-    </div>
+    </main>
   );
 }

@@ -1,10 +1,34 @@
+'use client';
+
+import { motion } from 'framer-motion';
+
 export function GoldHeart({ className = "", size = 60 }: { className?: string; size?: number }) {
   return (
-    <div className={`relative ${className}`} style={{ width: size, height: size }}>
-      <svg
+    <motion.div 
+      className={`relative ${className}`} 
+      style={{ width: size, height: size }}
+      whileHover={{ scale: 1.15, rotate: 5 }}
+      transition={{ type: "spring", stiffness: 400, damping: 17 }}
+    >
+      <motion.svg
         viewBox="0 0 100 100"
         className="w-full h-full animate-pulse-glow"
         xmlns="http://www.w3.org/2000/svg"
+        aria-hidden="true"
+        role="img"
+        aria-label="Gold heart logo"
+        animate={{
+          filter: [
+            "drop-shadow(0 0 10px rgba(251,191,36,0.6))",
+            "drop-shadow(0 0 20px rgba(251,191,36,0.8))",
+            "drop-shadow(0 0 10px rgba(251,191,36,0.6))",
+          ],
+        }}
+        transition={{
+          duration: 2,
+          repeat: Infinity,
+          ease: "easeInOut",
+        }}
       >
         <defs>
           <linearGradient id="goldGradient" x1="0%" y1="0%" x2="100%" y2="100%">
@@ -26,7 +50,7 @@ export function GoldHeart({ className = "", size = 60 }: { className?: string; s
           filter="url(#glow)"
           className="drop-shadow-[0_0_10px_rgba(251,191,36,0.6)]"
         />
-      </svg>
-    </div>
+      </motion.svg>
+    </motion.div>
   );
 }

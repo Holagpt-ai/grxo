@@ -1,11 +1,20 @@
 'use client';
 
-import { useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
 import { useTranslations } from 'next-intl';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { GoldHeart } from './GoldHeart';
 import { toast } from 'sonner';
+
+// Zod schema for email validation
+const subscribeSchema = z.object({
+  email: z.string().email('Please enter a valid email address').min(1, 'Email is required'),
+});
+
+type SubscribeFormData = z.infer<typeof subscribeSchema>;
 
 const socialLinks = [
   { name: 'YouTube', icon: 'Y', url: '#' },
@@ -20,25 +29,37 @@ const socialLinks = [
 
 export function Footer() {
   const t = useTranslations('footer');
-  const [email, setEmail] = useState('');
-  const [isSubmitting, setIsSubmitting] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<SubscribeFormData>({
+    resolver: zodResolver(subscribeSchema),
+  });
 
-  const handleSubscribe = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!email || !email.includes('@')) {
-      toast.error('Please enter a valid email address');
-      return;
-    }
+  const onSubmit = async (data: SubscribeFormData) => {
+    try {
+      const response = await fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email: data.email }),
+      });
 
-    setIsSubmitting(true);
-    
-    // Simulate API call (placeholder for now)
-    setTimeout(() => {
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || t('subscribeError'));
+      }
+
       toast.success(t('subscribeSuccess'));
-      setEmail('');
-      setIsSubmitting(false);
-    }, 1000);
+      reset();
+    } catch (error) {
+      const errorMessage = error instanceof Error ? error.message : t('subscribeError');
+      toast.error(errorMessage);
+    }
   };
 
   return (
@@ -50,21 +71,31 @@ export function Footer() {
           <h3 className="text-2xl font-bold text-amber-400 mb-2">{t('newsletter')}</h3>
           <p className="text-gray-400 mb-6">{t('newsletterDescription')}</p>
           
-          <form onSubmit={handleSubscribe} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
-            <Input
-              type="email"
-              placeholder={t('emailPlaceholder')}
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="flex-1 bg-gray-900 border-amber-500/30 text-white placeholder:text-gray-500 focus:border-amber-500"
-              disabled={isSubmitting}
-            />
+          <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <div className="flex-1">
+              <Input
+                type="email"
+                placeholder={t('emailPlaceholder')}
+                {...register('email')}
+                className={`flex-1 bg-gray-900 border-amber-500/30 text-white placeholder:text-gray-500 focus:border-amber-500 ${
+                  errors.email ? 'border-red-500 focus:border-red-500' : ''
+                }`}
+                disabled={isSubmitting}
+                aria-invalid={errors.email ? 'true' : 'false'}
+                aria-describedby={errors.email ? 'email-error' : undefined}
+              />
+              {errors.email && (
+                <p id="email-error" className="mt-1 text-sm text-red-400 text-left">
+                  {errors.email.message}
+                </p>
+              )}
+            </div>
             <Button
               type="submit"
               disabled={isSubmitting}
-              className="bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-black font-bold shadow-[0_0_20px_rgba(251,191,36,0.3)]"
+              className="bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-black font-bold shadow-[0_0_20px_rgba(251,191,36,0.3)] disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {t('subscribe')}
+              {isSubmitting ? 'Subscribing...' : t('button')}
             </Button>
           </form>
         </div>

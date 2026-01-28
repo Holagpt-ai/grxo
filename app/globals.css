@@ -117,8 +117,20 @@
   * {
     @apply border-border outline-ring/50;
   }
+  html {
+    scroll-behavior: smooth;
+  }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-smooth: always;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  p {
+    @apply leading-relaxed;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-bold;
   }
   button:not(:disabled),
   [role="button"]:not([aria-disabled="true"]),

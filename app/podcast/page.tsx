@@ -2,11 +2,16 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import dynamic from 'next/dynamic';
 import { Button } from '@/components/ui/button';
 import { GoldHeart } from '@/components/GoldHeart';
-import { Footer } from '@/components/Footer';
 import { Play, Clock } from 'lucide-react';
 import Link from 'next/link';
+
+// Lazy load Footer component
+const Footer = dynamic(() => import('@/components/Footer').then(mod => ({ default: mod.Footer })), {
+  ssr: true,
+});
 
 const platforms = [
   { name: 'spotify', icon: 'S', url: 'https://spotify.com' },
@@ -79,7 +84,7 @@ export default function Podcast() {
     : episodes.filter(ep => ep.category === activeFilter);
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-black text-white">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         {/* Background with abstract portrait */}
@@ -90,6 +95,8 @@ export default function Podcast() {
               backgroundImage: 'url(/images/GXOMainHeadshotWebsite.JPG)',
               filter: 'contrast(1.3) brightness(0.6)',
             }}
+            aria-hidden="true"
+            role="presentation"
           />
           <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-transparent to-magenta-500/20 mix-blend-screen" />
           <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/80 to-black" />
@@ -251,6 +258,6 @@ export default function Podcast() {
 
       {/* Footer */}
       <Footer />
-    </div>
+    </main>
   );
 }

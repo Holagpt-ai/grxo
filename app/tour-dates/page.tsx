@@ -2,11 +2,16 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import dynamic from 'next/dynamic';
 import { Button } from '@/components/ui/button';
 import { GoldHeart } from '@/components/GoldHeart';
-import { Footer } from '@/components/Footer';
 import { Calendar, MapPin, Ticket, ExternalLink } from 'lucide-react';
 import { toast } from 'sonner';
+
+// Lazy load Footer component
+const Footer = dynamic(() => import('@/components/Footer').then(mod => ({ default: mod.Footer })), {
+  ssr: true,
+});
 
 interface TourDate {
   id: number;
@@ -168,7 +173,7 @@ export default function TourDates() {
   const displayShows = showPast ? pastShows : upcomingShows;
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-black text-white">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-cyan-900/10 to-black" />
@@ -313,6 +318,6 @@ export default function TourDates() {
 
       {/* Footer */}
       <Footer />
-    </div>
+    </main>
   );
 }

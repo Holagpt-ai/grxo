@@ -2,11 +2,16 @@
 
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
+import dynamic from 'next/dynamic';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { GoldHeart } from '@/components/GoldHeart';
-import { Footer } from '@/components/Footer';
 import { Play, Pause } from 'lucide-react';
+
+// Lazy load Footer component
+const Footer = dynamic(() => import('@/components/Footer').then(mod => ({ default: mod.Footer })), {
+  ssr: true,
+});
 
 const platforms = [
   { name: 'spotify', icon: 'S', url: 'https://spotify.com' },
@@ -48,7 +53,7 @@ export default function Music() {
   const [activeTab, setActiveTab] = useState('featured');
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-black text-white">
       {/* Hero Section */}
       <section className="relative py-20 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/10 to-black" />
@@ -183,6 +188,13 @@ export default function Music() {
                             backgroundImage: 'url(/images/picgold.png)',
                             backgroundSize: 'cover',
                           }}
+                          aria-hidden="true"
+                          role="presentation"
+                        />
+                        <div 
+                          className="absolute inset-0"
+                          style={{
+                          }}
                         />
                         <div className="absolute inset-0 flex items-center justify-center">
                           <GoldHeart size={60} />
@@ -220,6 +232,6 @@ export default function Music() {
 
       {/* Footer */}
       <Footer />
-    </div>
+    </main>
   );
 }
