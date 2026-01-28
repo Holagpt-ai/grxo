@@ -26,13 +26,13 @@ This initial sprint establishes the foundation for a fully bilingual website exp
 
 | Category | Technology | Purpose |
 |----------|-----------|---------|
-| Frontend Framework | React 19 | Modern UI development with latest features |
-| Routing | Wouter | Lightweight client-side routing |
+| Frontend Framework | Next.js 15 (App Router) | Server-side rendering and modern React features |
+| Routing | Next.js App Router | File-based routing with SSR support |
 | Styling | Tailwind CSS 4 | Utility-first responsive design |
 | Internationalization | next-intl | Translation management and locale handling |
 | State Management | js-cookie | Persistent locale storage |
 | UI Components | shadcn/ui | Pre-built accessible components |
-| Build Tool | Vite | Fast development and optimized builds |
+| Build Tool | Next.js | Optimized production builds with SSR |
 | Package Manager | pnpm | Efficient dependency management |
 
 ---
@@ -43,32 +43,42 @@ The codebase follows a modular architecture designed for scalability and maintai
 
 ```
 goldie-xo-website/
-├── client/
-│   ├── public/              # Static assets
-│   ├── src/
-│   │   ├── components/      # Reusable UI components
-│   │   │   ├── ui/          # shadcn/ui components
-│   │   │   ├── LanguageToggle.tsx
-│   │   │   └── Navigation.tsx
-│   │   ├── contexts/        # React context providers
-│   │   │   ├── IntlContext.tsx
-│   │   │   └── ThemeContext.tsx
-│   │   ├── lib/             # Utility functions
-│   │   │   └── i18n.ts      # i18n configuration
-│   │   ├── pages/           # Page components
-│   │   │   ├── Home.tsx
-│   │   │   └── NotFound.tsx
-│   │   ├── App.tsx          # Root application component
-│   │   ├── main.tsx         # Application entry point
-│   │   └── index.css        # Global styles and theme
-│   └── index.html           # HTML template
+├── app/
+│   ├── about/                # About page route
+│   ├── book/                # Book page route
+│   ├── contact/             # Contact page route
+│   ├── merch/               # Merch page route
+│   ├── music/               # Music page route
+│   ├── podcast/             # Podcast page route
+│   ├── tour-dates/          # Tour dates page route
+│   ├── layout.tsx           # Root layout component
+│   ├── page.tsx             # Home page
+│   ├── providers.tsx         # Client-side providers wrapper
+│   ├── globals.css          # Global styles and Tailwind imports
+│   └── not-found.tsx         # 404 page
+├── components/
+│   ├── contexts/            # React context providers
+│   │   ├── IntlContext.tsx
+│   │   └── ThemeContext.tsx
+│   ├── ui/                  # shadcn/ui components
+│   ├── ErrorBoundary.tsx
+│   ├── Footer.tsx
+│   ├── GoldHeart.tsx
+│   ├── LanguageToggle.tsx
+│   ├── Navigation.tsx
+│   └── ...
 ├── messages/
 │   ├── en.json              # English translations
 │   └── es.json              # Spanish translations
-├── server/
-│   └── index.ts             # Express server for production
+├── lib/
+│   ├── i18n.ts              # i18n configuration
+│   └── utils.ts             # Utility functions
+├── hooks/                   # Custom React hooks
+├── public/                  # Static assets
 ├── package.json             # Dependencies and scripts
-└── tailwind.config.ts       # Tailwind configuration
+├── tailwind.config.ts       # Tailwind configuration
+├── postcss.config.js        # PostCSS configuration
+└── next.config.js           # Next.js configuration
 ```
 
 ---
@@ -110,7 +120,7 @@ Create an optimized production build:
 pnpm build
 ```
 
-The build output will be generated in the `dist/` directory.
+The build output will be generated in the `.next/` directory.
 
 ### Running Production Build
 
@@ -124,7 +134,7 @@ pnpm start
 
 ## Deployment to Vercel
 
-Vercel provides seamless deployment for this React application with automatic builds and global CDN distribution.
+Vercel provides seamless deployment for this Next.js application with automatic builds, server-side rendering, and global CDN distribution.
 
 ### Step 1: Prepare Your Repository
 
@@ -213,7 +223,7 @@ function MyComponent() {
 
 To support additional languages beyond English and Spanish:
 
-1. Update the locale configuration in `client/src/lib/i18n.ts`:
+1. Update the locale configuration in `lib/i18n.ts`:
 
 ```typescript
 export const locales = ['en', 'es', 'fr'] as const; // Add 'fr' for French

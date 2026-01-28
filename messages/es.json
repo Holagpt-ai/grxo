@@ -13,14 +13,19 @@
     "podcast": "Podcast"
   },
   "hero": {
+    "title": "DJ Goldie XO",
+    "subtitle": "Vibras EDM y Latin House desde NYC",
+    "description": "Experimenta la fusión de EDM y Latin House como nunca antes",
+    "listen": "Escuchar Ahora",
+    "preorder": "Preordenar el Libro",
     "headline": "DJ Goldie XO",
     "subheadline": "Vibras EDM y Latin House desde NYC",
-    "description": "Experimenta la fusión de EDM y Latin House como nunca antes",
     "listenNow": "Escuchar Ahora",
     "preorderBook": "Preordenar el Libro"
   },
   "about": {
     "title": "Acerca de Goldie XO",
+    "text": "Nacida y criada en el corazón de la ciudad de Nueva York, DJ Goldie XO trae una fusión electrizante de EDM y Latin House a escenarios de todo el mundo. Con un sonido característico que mezcla ritmos pulsantes con ritmos latinos, Goldie se ha convertido en una fuerza en la escena de clubes underground y más allá.",
     "teaser": "Nacida y criada en el corazón de la ciudad de Nueva York, DJ Goldie XO trae una fusión electrizante de EDM y Latin House a escenarios de todo el mundo. Con un sonido característico que mezcla ritmos pulsantes con ritmos latinos, Goldie se ha convertido en una fuerza en la escena de clubes underground y más allá.",
     "readMore": "Leer Más",
     "headline": "El Ritmo Detrás del Nombre",
@@ -123,6 +128,7 @@
   "book": {
     "title": "El Ritmo Continúa",
     "subtitle": "Una Memoria de DJ Goldie XO",
+    "text": "Desde las calles de NYC hasta los escenarios más grandes del mundo, descubre el viaje de DJ Goldie XO. Una historia de pasión, ritmo y rompiendo barreras.",
     "description": "Desde las calles de NYC hasta los escenarios más grandes del mundo, descubre el viaje de DJ Goldie XO. Una historia de pasión, ritmo y rompiendo barreras.",
     "preorder": "Preordenar Ahora",
     "availableSoon": "Disponible Pronto",
@@ -206,13 +212,17 @@
   },
   "currentlySpinning": {
     "title": "Sonando Ahora",
-    "subtitle": "Última Mezcla"
+    "subtitle": "Última Mezcla",
+    "mixTitle": "Última Mezcla",
+    "mixDesc": "Mezcla Latin House Fusion • DJ Goldie XO • 2024"
   },
   "footer": {
+    "subscribe": "Suscríbete para recibir las últimas mezclas, fechas de tour y contenido exclusivo",
+    "button": "Suscribirse",
+    "copyright": "© 2026 DJ Goldie XO. Todos los derechos reservados.",
     "newsletter": "Mantente Conectado",
     "newsletterDescription": "Suscríbete para recibir las últimas mezclas, fechas de tour y contenido exclusivo",
     "emailPlaceholder": "Ingresa tu correo",
-    "subscribe": "Suscribirse",
     "subscribeSuccess": "¡Gracias por suscribirte!",
     "subscribeError": "Algo salió mal. Por favor, inténtalo de nuevo.",
     "rights": "Todos los derechos reservados",

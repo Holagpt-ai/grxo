@@ -13,14 +13,19 @@
     "podcast": "Podcast"
   },
   "hero": {
+    "title": "DJ Goldie XO",
+    "subtitle": "NYC EDM & Latin House Vibes",
+    "description": "Experience the fusion of EDM and Latin House like never before",
+    "listen": "Listen Now",
+    "preorder": "Preorder the Book",
     "headline": "DJ Goldie XO",
     "subheadline": "NYC EDM & Latin House Vibes",
-    "description": "Experience the fusion of EDM and Latin House like never before",
     "listenNow": "Listen Now",
     "preorderBook": "Preorder the Book"
   },
   "about": {
     "title": "About Goldie XO",
+    "text": "Born and raised in the heart of New York City, DJ Goldie XO brings an electrifying fusion of EDM and Latin House to stages worldwide. With a signature sound that blends pulsating beats with Latin rhythms, Goldie has become a force in the underground club scene and beyond.",
     "teaser": "Born and raised in the heart of New York City, DJ Goldie XO brings an electrifying fusion of EDM and Latin House to stages worldwide. With a signature sound that blends pulsating beats with Latin rhythms, Goldie has become a force in the underground club scene and beyond.",
     "readMore": "Read More",
     "headline": "The Beat Behind the Name",
@@ -123,6 +128,7 @@
   "book": {
     "title": "The Beat Goes On",
     "subtitle": "A Memoir by DJ Goldie XO",
+    "text": "From the streets of NYC to the world's biggest stages, discover the journey of DJ Goldie XO. A story of passion, rhythm, and breaking boundaries.",
     "description": "From the streets of NYC to the world's biggest stages, discover the journey of DJ Goldie XO. A story of passion, rhythm, and breaking boundaries.",
     "preorder": "Preorder Now",
     "availableSoon": "Available Soon",
@@ -206,13 +212,17 @@
   },
   "currentlySpinning": {
     "title": "Currently Spinning",
-    "subtitle": "Latest Mix"
+    "subtitle": "Latest Mix",
+    "mixTitle": "Latest Mix",
+    "mixDesc": "Latin House Fusion Mix • DJ Goldie XO • 2024"
   },
   "footer": {
+    "subscribe": "Subscribe to get the latest mixes, tour dates, and exclusive content",
+    "button": "Subscribe",
+    "copyright": "© 2026 DJ Goldie XO. All rights reserved.",
     "newsletter": "Stay Connected",
     "newsletterDescription": "Subscribe to get the latest mixes, tour dates, and exclusive content",
     "emailPlaceholder": "Enter your email",
-    "subscribe": "Subscribe",
     "subscribeSuccess": "Thanks for subscribing!",
     "subscribeError": "Something went wrong. Please try again.",
     "rights": "All rights reserved",
