@@ -39,13 +39,29 @@ export function IntlProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     // Load messages for current locale
     import(`@/messages/${locale}.json`)
-      .then((module) => setMessages(module.default))
+      .then((module) => {
+        if (module.default && typeof module.default === 'object') {
+          setMessages(module.default);
+        } else {
+          throw new Error(`Invalid messages format for locale ${locale}`);
+        }
+      })
       .catch((error) => {
         console.error(`Failed to load messages for locale ${locale}:`, error);
         // Fallback to default locale
         import(`@/messages/${defaultLocale}.json`)
-          .then((module) => setMessages(module.default))
-          .catch(console.error);
+          .then((module) => {
+            if (module.default && typeof module.default === 'object') {
+              setMessages(module.default);
+            } else {
+              console.error('Failed to load fallback messages');
+              setMessages({}); // Empty fallback to prevent crashes
+            }
+          })
+          .catch((fallbackError) => {
+            console.error('Failed to load fallback messages:', fallbackError);
+            setMessages({}); // Empty fallback to prevent crashes
+          });
       });
   }, [locale]);
 

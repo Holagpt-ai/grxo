@@ -24,6 +24,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white">
       {/* Hero Section */}
+      {/* Note: Images are in /public/images/ - add real images to /public/images/ */}
       <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden">
         {/* Background with abstract portrait */}
         <div className="absolute inset-0">

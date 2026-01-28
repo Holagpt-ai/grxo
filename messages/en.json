@@ -1,9 +1,6 @@
 {
-  "site": {
-    "title": "DJ Goldie XO - Official Website",
-    "tagline": "NYC's Finest EDM & Latin House DJ"
-  },
   "nav": {
+    "home": "Home",
     "about": "About",
     "music": "Music",
     "merch": "Merch",
@@ -27,222 +24,33 @@
     "title": "About Goldie XO",
     "text": "Born and raised in the heart of New York City, DJ Goldie XO brings an electrifying fusion of EDM and Latin House to stages worldwide. With a signature sound that blends pulsating beats with Latin rhythms, Goldie has become a force in the underground club scene and beyond.",
     "teaser": "Born and raised in the heart of New York City, DJ Goldie XO brings an electrifying fusion of EDM and Latin House to stages worldwide. With a signature sound that blends pulsating beats with Latin rhythms, Goldie has become a force in the underground club scene and beyond.",
-    "readMore": "Read More",
-    "headline": "The Beat Behind the Name",
-    "bio": {
-      "paragraph1": "Born and raised in the vibrant streets of New York City, DJ Goldie XO discovered her passion for music at an early age. Growing up surrounded by the diverse sounds of the city—from underground Latin clubs to rooftop EDM parties—she developed a unique ear for rhythm and energy that would define her career.",
-      "paragraph2": "Her journey into DJing began in Brooklyn's underground scene, where she honed her craft spinning at intimate venues and warehouse parties. It was here that Goldie XO perfected her signature sound: a high-energy fusion of EDM's pulsating beats with the infectious rhythms of Latin House. Her sets became legendary for their ability to make crowds move, blending genres seamlessly while maintaining an electrifying atmosphere.",
-      "paragraph3": "Today, DJ Goldie XO has evolved from underground sensation to international artist, performing at major festivals and clubs across the globe. Yet she remains deeply connected to her NYC roots, continuing to champion the sounds and culture that shaped her. Beyond the decks, she's also an author, sharing her journey and insights in her upcoming memoir.",
-      "quote": "Music isn't just what I do—it's who I am. Every beat, every drop, every moment on stage is about creating a connection that transcends language and borders."
-    },
-    "stats": {
-      "title": "By The Numbers",
-      "based": "Based in NYC",
-      "genre": "EDM / Latin House",
-      "experience": "10+ Years Experience",
-      "shows": "500+ Shows Worldwide",
-      "festivals": "Featured at 50+ Festivals"
-    },
-    "venues": {
-      "title": "Notable Venues & Festivals",
-      "list": [
-        "Electric Daisy Carnival (EDC)",
-        "Tomorrowland",
-        "Ultra Music Festival",
-        "Output Brooklyn",
-        "Pacha NYC",
-        "Space Miami",
-        "Amnesia Ibiza",
-        "Fabric London"
-      ]
-    }
+    "readMore": "Read More"
   },
-  "music": {
-    "title": "Listen to Goldie XO",
-    "subtitle": "Explore the Sound",
-    "description": "From high-energy EDM to Latin House grooves, dive into the sonic world of DJ Goldie XO",
-    "tabs": {
-      "featured": "Featured",
-      "latestMixes": "Latest Mixes",
-      "latinHouse": "Latin House",
-      "edm": "EDM"
-    },
-    "featured": {
-      "title": "Now Playing",
-      "track": "Latin House Fusion Mix 2024"
-    },
-    "listenOn": "Listen On",
-    "platforms": {
-      "spotify": "Spotify",
-      "soundcloud": "SoundCloud",
-      "appleMusic": "Apple Music",
-      "youtube": "YouTube",
-      "beatport": "Beatport",
-      "tidal": "Tidal"
-    },
-    "releases": {
-      "title": "Latest Releases",
-      "playNow": "Play Now",
-      "viewMore": "View More"
-    }
-  },
-  "podcast": {
-    "title": "The Goldie XO Podcast",
-    "subtitle": "Behind the Decks",
-    "description": "Join DJ Goldie XO for intimate conversations about music, culture, and the journey from underground clubs to global stages",
-    "listenOn": "Listen On",
-    "filters": {
-      "all": "All Episodes",
-      "clubStories": "Club Stories",
-      "producerChats": "Producer Chats",
-      "latinHouse": "Latin House Focus"
-    },
-    "episodes": {
-      "title": "Episodes",
-      "duration": "Duration",
-      "play": "Play Episode",
-      "readMore": "Read More"
-    },
-    "bookPromo": {
-      "title": "From the Book",
-      "description": "Exclusive excerpts from 'The Beat Goes On' - Available for preorder now",
-      "cta": "Preorder the Book"
-    }
-  },
-  "merch": {
-    "title": "Official Merch",
-    "subtitle": "Wear the Vibe",
-    "description": "Rep the Goldie XO brand with exclusive merchandise featuring signature designs and the iconic gold heart logo",
-    "filters": {
-      "all": "All Items",
-      "apparel": "Apparel",
-      "accessories": "Accessories",
-      "limited": "Limited Edition"
-    },
-    "addToCart": "Add to Cart",
-    "soldOut": "Sold Out",
-    "limitedEdition": "Limited Edition",
-    "newArrival": "New Arrival",
-    "comingSoon": "Coming Soon"
+  "currentlySpinning": {
+    "title": "Currently Spinning",
+    "mixTitle": "Latest Mix",
+    "mixDesc": "Latin House Fusion Mix • DJ Goldie XO • 2024",
+    "subtitle": "Latest Mix"
   },
   "book": {
     "title": "The Beat Goes On",
     "subtitle": "A Memoir by DJ Goldie XO",
     "text": "From the streets of NYC to the world's biggest stages, discover the journey of DJ Goldie XO. A story of passion, rhythm, and breaking boundaries.",
-    "description": "From the streets of NYC to the world's biggest stages, discover the journey of DJ Goldie XO. A story of passion, rhythm, and breaking boundaries.",
     "preorder": "Preorder Now",
-    "availableSoon": "Available Soon",
-    "hero": {
-      "tagline": "A Story of Music, Passion, and Breaking Boundaries",
-      "releaseDate": "Available Spring 2024"
-    },
-    "synopsis": {
-      "title": "About the Book",
-      "text": "In 'The Beat Goes On,' DJ Goldie XO takes readers on an intimate journey through her life in music. From her early days discovering rhythm in the diverse soundscapes of New York City to becoming a force in the global EDM and Latin House scenes, this memoir reveals the passion, struggles, and triumphs behind the decks. With raw honesty and infectious energy, Goldie shares the stories that shaped her sound and the lessons learned from a decade of moving crowds across the world."
-    },
-    "purchase": {
-      "title": "Get Your Copy",
-      "preorderNow": "Preorder Now",
-      "buyOnAmazon": "Buy on Amazon",
-      "buyOnBarnesNoble": "Buy on Barnes & Noble",
-      "buyOnAppleBooks": "Buy on Apple Books"
-    },
-    "endorsements": {
-      "title": "What People Are Saying",
-      "quotes": [
-        {
-          "text": "A raw, electrifying journey through the world of electronic music. Goldie's story is as powerful as her beats.",
-          "author": "DJ Mag"
-        },
-        {
-          "text": "An inspiring tale of passion and perseverance. A must-read for anyone who loves music.",
-          "author": "Billboard"
-        },
-        {
-          "text": "Goldie XO's memoir captures the essence of what it means to live for the music.",
-          "author": "Mixmag"
-        }
-      ]
-    },
-    "inside": {
-      "title": "Inside the Book",
-      "chapters": [
-        "Chapter 1: Brooklyn Beats - Growing up in NYC's underground scene",
-        "Chapter 2: Finding My Sound - The birth of Latin House fusion",
-        "Chapter 3: Warehouse Nights - Stories from the early days",
-        "Chapter 4: Breaking Through - From local DJ to international artist",
-        "Chapter 5: Festival Stages - Performing at the world's biggest events",
-        "Chapter 6: The Creative Process - How I make my music",
-        "Chapter 7: Behind the Decks - Life on tour",
-        "Chapter 8: The Beat Goes On - What's next"
-      ]
-    },
-    "podcastPromo": {
-      "title": "Hear More on the Podcast",
-      "description": "Dive deeper into the stories from the book with exclusive podcast episodes",
-      "cta": "Listen Now"
-    }
-  },
-  "contact": {
-    "title": "Get In Touch",
-    "subtitle": "Let's Connect",
-    "description": "Whether you're looking to book Goldie XO for your next event, have a press inquiry, or just want to say hello, we'd love to hear from you.",
-    "form": {
-      "name": "Your Name",
-      "email": "Your Email",
-      "subject": "Subject",
-      "message": "Your Message",
-      "subjectBookings": "Bookings",
-      "subjectPress": "Press",
-      "subjectGeneral": "General",
-      "send": "Send Message",
-      "sending": "Sending...",
-      "success": "Message sent successfully! We'll get back to you soon.",
-      "error": "Something went wrong. Please try again."
-    },
-    "info": {
-      "title": "Direct Contact",
-      "bookings": "Bookings",
-      "bookingsEmail": "bookings@goldiexo.com",
-      "management": "Management",
-      "managementEmail": "management@goldiexo.com",
-      "press": "Press Inquiries",
-      "pressEmail": "press@goldiexo.com"
-    }
-  },
-  "currentlySpinning": {
-    "title": "Currently Spinning",
-    "subtitle": "Latest Mix",
-    "mixTitle": "Latest Mix",
-    "mixDesc": "Latin House Fusion Mix • DJ Goldie XO • 2024"
+    "description": "From the streets of NYC to the world's biggest stages, discover the journey of DJ Goldie XO. A story of passion, rhythm, and breaking boundaries.",
+    "availableSoon": "Available Soon"
   },
   "footer": {
     "subscribe": "Subscribe to get the latest mixes, tour dates, and exclusive content",
     "button": "Subscribe",
     "copyright": "© 2026 DJ Goldie XO. All rights reserved.",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
     "newsletter": "Stay Connected",
     "newsletterDescription": "Subscribe to get the latest mixes, tour dates, and exclusive content",
     "emailPlaceholder": "Enter your email",
     "subscribeSuccess": "Thanks for subscribing!",
     "subscribeError": "Something went wrong. Please try again.",
-    "rights": "All rights reserved",
-    "privacy": "Privacy Policy",
-    "terms": "Terms of Service"
-  },
-  "tourDates": {
-    "title": "Tour Dates",
-    "subtitle": "Catch Me Live",
-    "description": "Experience the energy of DJ Goldie XO live. From intimate club nights to massive festival stages, join the party at a city near you.",
-    "upcoming": "Upcoming Shows",
-    "past": "Past Shows",
-    "featured": "Featured Show",
-    "soldOut": "Sold Out",
-    "getTickets": "Get Tickets",
-    "moreInfo": "More Info",
-    "noShows": "No upcoming shows at the moment. Check back soon!"
-  },
-  "language": {
-    "english": "English",
-    "spanish": "Spanish"
+    "rights": "All rights reserved"
   }
 }
