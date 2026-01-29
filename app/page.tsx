@@ -32,10 +32,22 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-black text-white">
-      {/* Hero Section – single main Goldie headshot, no overlapping background */}
-      <section className="relative min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center overflow-hidden px-4 md:px-6 pt-24 pb-12">
-        {/* Dark background only – no duplicate/overlapping photo */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900/95 to-black" />
+      {/* Hero Section – full-bleed image, seamless blend, luxurious header */}
+      <section className="relative min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center overflow-hidden">
+        {/* Full-width hero image – no borders, no box, blends into section */}
+        <div className="absolute inset-0 rounded-none">
+          <Image
+            src="/images/GXOMainHeadshotWebsite.JPG"
+            alt="Goldie XO portrait"
+            fill
+            sizes="100vw"
+            className="object-cover object-center"
+            priority
+          />
+        </div>
+        {/* Overlay for readability and seamless blend into dark below */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/50 to-black/90 rounded-none" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent pointer-events-none rounded-none" />
 
         {/* Floating gold heart logo */}
         <motion.div 
@@ -45,90 +57,72 @@ export default function Home() {
           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
           whileHover={{ scale: 1.1, rotate: 5 }}
         >
-          <GoldHeart size={80} className="animate-pulse-slow" />
+          <GoldHeart size={80} className="animate-pulse-slow drop-shadow-[0_0_20px_rgba(251,191,36,0.5)]" />
         </motion.div>
 
-        {/* Main headshot – single clean photo (no overlapping background) */}
-        <motion.div
-          className="relative z-0 w-full max-w-md mx-auto mb-6 md:mb-8 flex-shrink-0"
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
-        >
-          <div className="relative aspect-[3/4] w-full max-w-sm mx-auto rounded-2xl overflow-hidden border-2 border-amber-500/30 shadow-[0_0_40px_rgba(251,191,36,0.2)]">
-            <Image
-              src="/images/GXOMainHeadshotWebsite.JPG"
-              alt="Goldie XO portrait"
-              fill
-              sizes="(max-width: 768px) 90vw, 384px"
-              className="object-cover"
-              priority
-            />
-          </div>
-        </motion.div>
-
-        {/* Content */}
-        <div className="relative z-10 container max-w-7xl mx-auto px-4 md:px-6 text-center">
+        {/* Content – larger typography, more spacing, gold accents, fade-in */}
+        <div className="relative z-10 container max-w-7xl mx-auto px-4 md:px-8 pt-24 pb-16 text-center">
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, ease: "easeOut" }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="flex flex-col items-center"
           >
             <motion.h1 
-              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-clip-text text-transparent animate-gradient drop-shadow-[0_0_30px_rgba(251,191,36,0.5)]"
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
+              className="text-6xl md:text-7xl lg:text-8xl font-black mb-6 md:mb-8 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-clip-text text-transparent animate-gradient drop-shadow-[0_0_40px_rgba(251,191,36,0.6)] [text-shadow:0_0_60px_rgba(251,191,36,0.3)]"
+              initial={{ opacity: 0, y: 24 }}
+              animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             >
               {tHero('headline')}
             </motion.h1>
             <motion.p 
-              className="text-2xl text-amber-200 mb-4 font-medium tracking-wide drop-shadow-[0_0_10px_rgba(251,191,36,0.8)]"
-              initial={{ opacity: 0, y: 10 }}
+              className="text-2xl md:text-3xl text-amber-200 mb-6 font-semibold tracking-wide drop-shadow-[0_0_15px_rgba(251,191,36,0.5)]"
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
+              transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
             >
               {tHero('subheadline')}
             </motion.p>
             <motion.p 
-              className="text-lg text-gray-300 mb-6 max-w-2xl mx-auto leading-relaxed"
-              initial={{ opacity: 0, y: 10 }}
+              className="text-lg md:text-xl text-gray-300 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed"
+              initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
+              transition={{ duration: 0.7, delay: 0.55, ease: "easeOut" }}
             >
               {tHero('description')}
             </motion.p>
             
             <motion.div 
-              className="flex flex-col sm:flex-row gap-3 justify-center items-center"
-              initial={{ opacity: 0, y: 10 }}
+              className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center"
+              initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
+              transition={{ duration: 0.7, delay: 0.75, ease: "easeOut" }}
             >
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.06 }}
+                whileTap={{ scale: 0.97 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
                 <Link href="/music">
                   <Button 
                     size="lg"
-                    className="bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-black font-bold text-lg px-8 py-6 shadow-[0_0_30px_rgba(251,191,36,0.4)] hover:shadow-[0_0_50px_rgba(251,191,36,0.8)] transition-all"
+                    className="bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-black font-black text-xl px-10 py-7 shadow-[0_0_40px_rgba(251,191,36,0.4)] hover:shadow-[0_0_60px_rgba(251,191,36,0.6)] transition-all duration-300 border-0"
                   >
                     {tHero('listenNow')}
                   </Button>
                 </Link>
               </motion.div>
               <motion.div
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
+                whileHover={{ scale: 1.06 }}
+                whileTap={{ scale: 0.97 }}
                 transition={{ type: "spring", stiffness: 400, damping: 17 }}
               >
                 <Link href="/book">
                   <Button 
                     size="lg"
                     variant="outline"
-                    className="border-2 border-amber-500 text-amber-400 hover:bg-amber-500/10 font-bold text-lg px-8 py-6 backdrop-blur-sm hover:shadow-[0_0_30px_rgba(251,191,36,0.4)] transition-all"
+                    className="border-2 border-amber-400/90 text-amber-300 hover:bg-amber-500/20 font-bold text-xl px-10 py-7 backdrop-blur-sm hover:shadow-[0_0_40px_rgba(251,191,36,0.4)] transition-all duration-300"
                   >
                     {tHero('preorderBook')}
                   </Button>
@@ -138,8 +132,8 @@ export default function Home() {
           </motion.div>
         </div>
 
-        {/* Bottom gradient */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-black to-transparent" />
+        {/* Bottom gradient – seamless transition to next section */}
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-black to-transparent pointer-events-none z-[1]" />
       </section>
 
       {/* About Teaser Section */}
