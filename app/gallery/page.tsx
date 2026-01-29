@@ -14,7 +14,7 @@ const Footer = dynamic(() => import('@/components/Footer').then(mod => ({ defaul
 const BLUR_DATA_URL =
   'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAgGBgcGBQgHBwcJCQgKDBQNDAsLDBkSEw8UHRofHh0aHBwgJC4nICIsIxwcKDcpLDAxNDQ0Hyc5PTgyPC4zNDL/2wBDAQkJCQwLDBgNDRgyIRwhMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjIyMjL/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAUEAEAAAAAAAAAAAAAAAAAAAAA/8QAFQEBAQAAAAAAAAAAAAAAAAAAAAX/8QAFBEBAAAAAAAAAAAAAAAAAAAAAP/aAAwDAQACEQMRAD8AdkH/2Q==';
 
-// Replace with your gallery images from /public/gallery/ (e.g. 1.jpg, 2.jpg)
+// Add Goldie photos here: place images in /public/gallery/ (e.g. 1.jpg, 2.jpg) and add to this array
 const galleryImages = [
   { src: '/images/GXOMainHeadshotWebsite.JPG', alt: 'Goldie XO' },
   { src: '/images/picgold.png', alt: 'Gold heart' },
@@ -37,7 +37,7 @@ export default function GalleryPage() {
         <div className="container relative z-10 text-center">
           <GoldHeart className="mx-auto mb-6" size={56} />
           <h1 className="text-4xl md:text-6xl font-bold text-amber-400 mb-4">
-            Gallery
+            Goldie XO Gallery
           </h1>
           <p className="text-gray-400 max-w-xl mx-auto">
             Photos and moments from the stage and beyond.
@@ -47,8 +47,8 @@ export default function GalleryPage() {
 
       {/* Grid */}
       <section className="py-16 pb-24">
-        <div className="container px-4">
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+        <div className="container max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {galleryImages.map((img, i) => (
               <div
                 key={i}
@@ -67,7 +67,7 @@ export default function GalleryPage() {
             ))}
           </div>
           <p className="text-center text-gray-500 text-sm mt-8">
-            Add your photos to <code className="text-amber-400/80">public/gallery/</code> and update{' '}
+            Add Goldie photos in <code className="text-amber-400/80">public/gallery/</code> and update{' '}
             <code className="text-amber-400/80">galleryImages</code> in this page.
           </p>
           <div className="text-center mt-6">
