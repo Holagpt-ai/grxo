@@ -4,7 +4,6 @@ import { z } from 'zod';
 const contactSchema = z.object({
   name: z.string().trim().min(1, 'Name is required').max(200, 'Name is too long'),
   email: z.string().trim().min(1, 'Email is required').email('Invalid email address'),
-  subject: z.string().trim().max(200).optional(),
   message: z.string().trim().min(1, 'Message is required').max(5000, 'Message is too long'),
 });
 
@@ -21,15 +20,15 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { name, email, subject, message } = result.data;
+    const { name, email, message } = result.data;
 
-    // Log to console (dev). For production, send email via Resend/etc.
-    console.log('[Contact] New message:', { name, email, subject, message });
+    // Log to console (dev). For production, send email via Resend/etc. to contact@goldiexo.com
+    console.log('[Contact] New message:', { name, email, message });
 
     // Optional: send email when RESEND_API_KEY is set
     // import { Resend } from 'resend';
     // const resend = new Resend(process.env.RESEND_API_KEY);
-    // await resend.emails.send({ from: '...', to: process.env.CONTACT_EMAIL, replyTo: email, subject: subject ?? 'Contact form', html: `From: ${name}<br>${message}` });
+    // await resend.emails.send({ from: '...', to: 'contact@goldiexo.com', replyTo: email, subject: `Contact from ${name}`, html: `From: ${name} &lt;${email}&gt;<br><br>${message}` });
 
     return NextResponse.json(
       { message: 'Message sent successfully' },

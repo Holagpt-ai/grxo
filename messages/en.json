@@ -76,6 +76,8 @@
     "title": "Contact Me",
     "subtitle": "Let's connect",
     "description": "Get in touch for bookings, press, or general inquiries.",
+    "mainEmail": "contact@goldiexo.com",
+    "emailLabel": "Email",
     "form": {
       "name": "Name",
       "email": "Email",

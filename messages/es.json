@@ -76,6 +76,8 @@
     "title": "Contáctame",
     "subtitle": "Conectemos",
     "description": "Escríbenos para reservas, prensa o consultas generales.",
+    "mainEmail": "contact@goldiexo.com",
+    "emailLabel": "Email",
     "form": {
       "name": "Nombre",
       "email": "Correo",

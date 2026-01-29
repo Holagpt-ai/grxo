@@ -8,7 +8,6 @@ import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { GoldHeart } from '@/components/GoldHeart';
 import { toast } from 'sonner';
 import { Mail, User, Building2, Calendar } from 'lucide-react';
@@ -30,7 +29,6 @@ const CalendlyWidget = dynamic(() => import('@/components/CalendlyWidget'), {
 const contactSchema = z.object({
   name: z.string().trim().min(1, 'Name is required').max(200, 'Name is too long'),
   email: z.string().trim().min(1, 'Email is required').email('Please enter a valid email address'),
-  subject: z.string().trim().max(200).optional(),
   message: z.string().trim().min(1, 'Message is required').max(5000, 'Message is too long'),
 });
 
@@ -46,14 +44,10 @@ export default function Contact() {
     handleSubmit,
     formState: { errors, isSubmitting },
     reset,
-    setValue,
-    watch,
   } = useForm<ContactFormData>({
     resolver: zodResolver(contactSchema),
-    defaultValues: { name: '', email: '', subject: '', message: '' },
+    defaultValues: { name: '', email: '', message: '' },
   });
-
-  const subjectValue = watch('subject');
 
   const onSubmit = async (data: ContactFormData) => {
     try {
@@ -85,19 +79,26 @@ export default function Contact() {
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-yellow-500/10 rounded-full blur-3xl" />
         
-        <div className="container relative z-10 text-center">
+        <div className="container max-w-6xl mx-auto px-4 relative z-10 text-center">
           <GoldHeart className="mx-auto mb-6" size={60} />
           <h1 className="text-5xl md:text-7xl font-black mb-4 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-clip-text text-transparent animate-gradient">
             {t('title')}
           </h1>
           <p className="text-xl text-amber-300 font-semibold mb-4">{t('subtitle')}</p>
-          <p className="text-gray-400 max-w-2xl mx-auto">{t('description')}</p>
+          <p className="text-gray-400 max-w-2xl mx-auto mb-6">{t('description')}</p>
+          <a
+            href={`mailto:${t('mainEmail')}`}
+            className="inline-flex items-center gap-2 text-2xl md:text-3xl font-bold text-amber-400 hover:text-amber-300 transition-colors underline decoration-amber-500/50 underline-offset-4 hover:decoration-amber-400"
+          >
+            <Mail size={28} className="flex-shrink-0" />
+            {t('mainEmail')}
+          </a>
         </div>
       </section>
 
       {/* Booking Section with Calendly */}
-      <section className="py-20 bg-gradient-to-b from-black via-gray-900 to-black border-y border-amber-500/20">
-        <div className="container relative z-10">
+      <section className="py-16 bg-gradient-to-b from-black via-gray-900 to-black border-y border-amber-500/20">
+        <div className="container max-w-6xl mx-auto px-4 relative z-10">
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <div className="flex items-center justify-center gap-3 mb-4">
@@ -117,9 +118,9 @@ export default function Contact() {
       </section>
 
       {/* Main Content */}
-      <section className="py-20 bg-gradient-to-b from-black via-gray-900 to-black relative">
-        <div className="container relative z-10">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 max-w-6xl mx-auto">
+      <section className="py-16 bg-gradient-to-b from-black via-gray-900 to-black relative">
+        <div className="container max-w-6xl mx-auto px-4 relative z-10">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
             {/* Contact Form */}
             <div className="lg:col-span-2">
               <div className="bg-gradient-to-br from-gray-900 to-black border border-amber-500/30 rounded-lg p-8 shadow-[0_0_40px_rgba(251,191,36,0.15)]">
@@ -164,33 +165,6 @@ export default function Contact() {
                     )}
                   </div>
 
-                  {/* Subject */}
-                  <div>
-                    <label htmlFor="subject" className="block text-amber-400 font-semibold mb-2">
-                      {tForm('subject')}
-                    </label>
-                    <Select
-                      value={subjectValue ?? ''}
-                      onValueChange={(value) => setValue('subject', value)}
-                      disabled={isSubmitting}
-                    >
-                      <SelectTrigger className="bg-black border-amber-500/30 text-white focus:border-amber-500">
-                        <SelectValue placeholder={tForm('subject')} />
-                      </SelectTrigger>
-                      <SelectContent className="bg-gray-900 border-amber-500/30">
-                        <SelectItem value="bookings" className="text-white hover:bg-amber-500/10">
-                          {tForm('subjectBookings')}
-                        </SelectItem>
-                        <SelectItem value="press" className="text-white hover:bg-amber-500/10">
-                          {tForm('subjectPress')}
-                        </SelectItem>
-                        <SelectItem value="general" className="text-white hover:bg-amber-500/10">
-                          {tForm('subjectGeneral')}
-                        </SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-
                   {/* Message */}
                   <div>
                     <label htmlFor="message" className="block text-amber-400 font-semibold mb-2">
@@ -233,6 +207,20 @@ export default function Contact() {
                 </div>
                 
                 <div className="space-y-6">
+                  {/* Main contact email - prominent */}
+                  <div className="pb-6 border-b border-amber-500/20">
+                    <div className="flex items-center gap-2 text-amber-300 font-semibold mb-2">
+                      <Mail size={18} />
+                      <span>{t('emailLabel')}</span>
+                    </div>
+                    <a
+                      href={`mailto:${t('mainEmail')}`}
+                      className="text-lg font-semibold text-amber-400 hover:text-amber-300 transition-colors break-all"
+                    >
+                      {t('mainEmail')}
+                    </a>
+                  </div>
+
                   {/* Bookings */}
                   <div className="group">
                     <div className="flex items-center gap-2 text-amber-300 font-semibold mb-2">
