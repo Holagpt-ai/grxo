@@ -33,7 +33,7 @@ export default function Home() {
   return (
     <main className="min-h-screen bg-black text-white">
       {/* Hero Section – single main Goldie headshot, no overlapping background */}
-      <section className="relative min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center overflow-hidden px-4 pt-24 pb-12">
+      <section className="relative min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center overflow-hidden px-4 md:px-6 pt-24 pb-12">
         {/* Dark background only – no duplicate/overlapping photo */}
         <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900/95 to-black" />
 
@@ -50,7 +50,7 @@ export default function Home() {
 
         {/* Main headshot – single clean photo (no overlapping background) */}
         <motion.div
-          className="relative z-0 w-full max-w-md mx-auto mb-8 md:mb-10 flex-shrink-0"
+          className="relative z-0 w-full max-w-md mx-auto mb-6 md:mb-8 flex-shrink-0"
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
@@ -68,7 +68,7 @@ export default function Home() {
         </motion.div>
 
         {/* Content */}
-        <div className="relative z-10 container max-w-6xl mx-auto px-4 text-center">
+        <div className="relative z-10 container max-w-7xl mx-auto px-4 md:px-6 text-center">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -91,7 +91,7 @@ export default function Home() {
               {tHero('subheadline')}
             </motion.p>
             <motion.p 
-              className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed"
+              className="text-lg text-gray-300 mb-6 max-w-2xl mx-auto leading-relaxed"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
@@ -144,7 +144,7 @@ export default function Home() {
 
       {/* About Teaser Section */}
       <motion.section 
-        className="py-16 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden"
+        className="py-12 md:py-16 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -154,7 +154,7 @@ export default function Home() {
         <div className="absolute top-0 left-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl" />
         
-        <div className="container max-w-6xl mx-auto px-4 relative z-10">
+        <div className="container max-w-7xl mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto">
             <motion.div 
               className="flex flex-col md:flex-row items-center gap-6"
@@ -203,16 +203,16 @@ export default function Home() {
 
       {/* Currently Spinning Section */}
       <motion.section 
-        className="py-16 bg-gradient-to-r from-gray-900 via-black to-gray-900 border-y border-amber-500/20"
+        className="py-12 md:py-16 bg-gradient-to-r from-gray-900 via-black to-gray-900 border-y border-amber-500/20"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
       >
-        <div className="container max-w-6xl mx-auto px-4">
+        <div className="container max-w-7xl mx-auto px-4 md:px-6">
           <div className="max-w-3xl mx-auto text-center">
             <motion.h3 
-              className="text-4xl font-bold text-amber-400 mb-3"
+              className="text-3xl md:text-4xl font-bold text-amber-400 mb-3"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -221,7 +221,7 @@ export default function Home() {
               {tSpinning('title')}
             </motion.h3>
             <motion.p 
-              className="text-2xl text-gray-400 mb-6 font-medium"
+              className="text-xl md:text-2xl text-gray-400 mb-6 font-medium"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -250,7 +250,7 @@ export default function Home() {
 
       {/* Book Highlight Section */}
       <motion.section 
-        className="py-16 bg-gradient-to-b from-black via-purple-900/10 to-black relative overflow-hidden"
+        className="py-12 md:py-16 bg-gradient-to-b from-black via-purple-900/10 to-black relative overflow-hidden"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -259,14 +259,14 @@ export default function Home() {
         {/* Decorative glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-3xl" />
         
-        <div className="container max-w-6xl mx-auto px-4 relative z-10">
+        <div className="container max-w-7xl mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-5xl mx-auto">
-            <div className="flex flex-col md:flex-row items-center gap-8">
+            <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
               {/* Book cover mockup */}
               <div className="relative w-80 h-96 flex-shrink-0">
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-500 via-yellow-600 to-amber-700 rounded-lg shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
                   <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center">
-                    <GoldHeart size={80} className="mb-6" />
+                    <GoldHeart size={80} className="mb-4 md:mb-6" />
                     <h3 className="text-3xl font-black text-black mb-2">{tBook('title')}</h3>
                     <p className="text-black/80 font-semibold text-lg">{tBook('subtitle')}</p>
                     <div className="absolute bottom-8 text-black/70 text-sm font-bold">
@@ -292,10 +292,10 @@ export default function Home() {
                 <div className="inline-block px-4 py-1 bg-amber-500/20 border border-amber-500/50 rounded-full text-amber-400 text-sm font-semibold mb-4">
                   {tBook('availableSoon')}
                 </div>
-                <h2 className="text-5xl md:text-6xl font-bold text-white mb-3">{tBook('title')}</h2>
-                <p className="text-2xl text-amber-400 font-medium mb-6">{tBook('subtitle')}</p>
+                <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-3">{tBook('title')}</h2>
+                <p className="text-xl md:text-2xl text-amber-400 font-medium mb-4 md:mb-6">{tBook('subtitle')}</p>
                 <div className="prose prose-invert prose-lg max-w-none">
-                  <p className="text-gray-300 leading-relaxed mb-6">
+                  <p className="text-gray-300 leading-relaxed mb-4 md:mb-6">
                     {tBook('description')}
                   </p>
                 </div>
