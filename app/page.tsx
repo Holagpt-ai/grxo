@@ -33,7 +33,7 @@ export default function Home() {
     <main className="min-h-screen bg-black text-white">
       {/* Hero Section */}
       {/* Note: Images are in /public/images/ - add real images: GXOMainHeadshotWebsite.JPG (hero headshot), picgold.png (gold heart/logo) */}
-      <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden px-4">
+      <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden px-4 pt-24 pb-12">
         {/* Background with abstract portrait */}
         <div className="absolute inset-0">
           {/* Base image with blend modes for neon effect */}
@@ -86,7 +86,7 @@ export default function Home() {
             transition={{ duration: 0.6, ease: "easeOut" }}
           >
             <motion.h1 
-              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-clip-text text-transparent animate-gradient drop-shadow-[0_0_30px_rgba(251,191,36,0.5)]"
+              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-4 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-clip-text text-transparent animate-gradient drop-shadow-[0_0_30px_rgba(251,191,36,0.5)]"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
@@ -94,7 +94,7 @@ export default function Home() {
               {tHero('headline')}
             </motion.h1>
             <motion.p 
-              className="text-2xl text-amber-200 mb-6 font-medium tracking-wide drop-shadow-[0_0_10px_rgba(251,191,36,0.8)]"
+              className="text-2xl text-amber-200 mb-4 font-medium tracking-wide drop-shadow-[0_0_10px_rgba(251,191,36,0.8)]"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4, ease: "easeOut" }}
@@ -102,7 +102,7 @@ export default function Home() {
               {tHero('subheadline')}
             </motion.p>
             <motion.p 
-              className="text-lg text-gray-300 mb-12 max-w-2xl mx-auto leading-relaxed"
+              className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.6, ease: "easeOut" }}
@@ -111,7 +111,7 @@ export default function Home() {
             </motion.p>
             
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+              className="flex flex-col sm:flex-row gap-3 justify-center items-center"
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.8, ease: "easeOut" }}
@@ -155,7 +155,7 @@ export default function Home() {
 
       {/* About Teaser Section */}
       <motion.section 
-        className="py-24 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden"
+        className="py-16 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -165,10 +165,10 @@ export default function Home() {
         <div className="absolute top-0 left-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl" />
         
-        <div className="container relative z-10">
+        <div className="container max-w-6xl mx-auto px-4 relative z-10">
           <div className="max-w-4xl mx-auto">
             <motion.div 
-              className="flex flex-col md:flex-row items-center gap-8"
+              className="flex flex-col md:flex-row items-center gap-6"
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
@@ -191,11 +191,11 @@ export default function Home() {
 
               {/* Bio text */}
               <div className="flex-1 text-center md:text-left">
-                <h2 className="text-4xl font-bold text-amber-400 mb-4 flex items-center justify-center md:justify-start gap-3">
+                <h2 className="text-4xl font-bold text-amber-400 mb-3 flex items-center justify-center md:justify-start gap-3">
                   <GoldHeart size={40} />
                   {tAbout('title')}
                 </h2>
-                <p className="text-gray-300 text-lg leading-relaxed mb-6">
+                <p className="text-gray-300 text-lg leading-relaxed mb-4">
                   {tAbout('teaser')}
                 </p>
                 <Link href="/about">
@@ -214,16 +214,16 @@ export default function Home() {
 
       {/* Currently Spinning Section */}
       <motion.section 
-        className="py-24 bg-gradient-to-r from-gray-900 via-black to-gray-900 border-y border-amber-500/20"
+        className="py-16 bg-gradient-to-r from-gray-900 via-black to-gray-900 border-y border-amber-500/20"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
       >
-        <div className="container">
+        <div className="container max-w-6xl mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <motion.h3 
-              className="text-4xl font-bold text-amber-400 mb-4"
+              className="text-4xl font-bold text-amber-400 mb-3"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -232,7 +232,7 @@ export default function Home() {
               {tSpinning('title')}
             </motion.h3>
             <motion.p 
-              className="text-2xl text-gray-400 mb-8 font-medium"
+              className="text-2xl text-gray-400 mb-6 font-medium"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -261,7 +261,7 @@ export default function Home() {
 
       {/* Book Highlight Section */}
       <motion.section 
-        className="py-24 bg-gradient-to-b from-black via-purple-900/10 to-black relative overflow-hidden"
+        className="py-16 bg-gradient-to-b from-black via-purple-900/10 to-black relative overflow-hidden"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -270,9 +270,9 @@ export default function Home() {
         {/* Decorative glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-3xl" />
         
-        <div className="container relative z-10">
+        <div className="container max-w-6xl mx-auto px-4 relative z-10">
           <div className="max-w-5xl mx-auto">
-            <div className="flex flex-col md:flex-row items-center gap-12">
+            <div className="flex flex-col md:flex-row items-center gap-8">
               {/* Book cover mockup */}
               <div className="relative w-80 h-96 flex-shrink-0">
                 <div className="absolute inset-0 bg-gradient-to-br from-amber-500 via-yellow-600 to-amber-700 rounded-lg shadow-2xl transform rotate-3 hover:rotate-0 transition-transform duration-300">
@@ -300,13 +300,13 @@ export default function Home() {
 
               {/* Book info */}
               <div className="flex-1 text-center md:text-left">
-                <div className="inline-block px-4 py-1 bg-amber-500/20 border border-amber-500/50 rounded-full text-amber-400 text-sm font-semibold mb-6">
+                <div className="inline-block px-4 py-1 bg-amber-500/20 border border-amber-500/50 rounded-full text-amber-400 text-sm font-semibold mb-4">
                   {tBook('availableSoon')}
                 </div>
-                <h2 className="text-5xl md:text-6xl font-bold text-white mb-4">{tBook('title')}</h2>
-                <p className="text-2xl text-amber-400 font-medium mb-8">{tBook('subtitle')}</p>
+                <h2 className="text-5xl md:text-6xl font-bold text-white mb-3">{tBook('title')}</h2>
+                <p className="text-2xl text-amber-400 font-medium mb-6">{tBook('subtitle')}</p>
                 <div className="prose prose-invert prose-lg max-w-none">
-                  <p className="text-gray-300 leading-relaxed mb-8">
+                  <p className="text-gray-300 leading-relaxed mb-6">
                     {tBook('description')}
                   </p>
                 </div>

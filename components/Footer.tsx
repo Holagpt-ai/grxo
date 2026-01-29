@@ -87,11 +87,11 @@ export function Footer() {
   return (
     <footer className="bg-black border-t border-amber-500/20">
       {/* Newsletter Section */}
-      <div className="container py-12">
+      <div className="container max-w-6xl mx-auto px-4 py-10">
         <div className="max-w-2xl mx-auto text-center">
-          <GoldHeart className="mx-auto mb-6" size={50} />
+          <GoldHeart className="mx-auto mb-4" size={50} />
           <h3 className="text-2xl font-bold text-amber-400 mb-2">{t('newsletter')}</h3>
-          <p className="text-gray-400 mb-6">{t('newsletterDescription')}</p>
+          <p className="text-gray-400 mb-4">{t('newsletterDescription')}</p>
           
           <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
             <div className="flex-1">
@@ -124,15 +124,15 @@ export function Footer() {
       </div>
 
       {/* Sitemap: Quick Links + Legal + Sitemap XML */}
-      <div className="border-t border-amber-500/20 py-10">
-        <div className="container">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-5xl mx-auto">
+      <div className="border-t border-amber-500/20 py-8">
+        <div className="container max-w-6xl mx-auto px-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto">
             {/* Quick Links */}
             <div>
-              <h4 className="text-amber-400 font-bold text-sm uppercase tracking-wider mb-4">
+              <h4 className="text-amber-400 font-bold text-sm uppercase tracking-wider mb-3">
                 {t('quickLinks')}
               </h4>
-              <ul className="space-y-2">
+              <ul className="space-y-1.5">
                 {quickLinks.map(({ key, path }) => (
                   <li key={key}>
                     <Link
@@ -147,7 +147,7 @@ export function Footer() {
             </div>
             {/* Legal */}
             <div>
-              <h4 className="text-amber-400 font-bold text-sm uppercase tracking-wider mb-4">
+              <h4 className="text-amber-400 font-bold text-sm uppercase tracking-wider mb-3">
                 {t('legal')}
               </h4>
               <ul className="space-y-2">
@@ -171,7 +171,7 @@ export function Footer() {
             </div>
             {/* Sitemap XML */}
             <div>
-              <h4 className="text-amber-400 font-bold text-sm uppercase tracking-wider mb-4">
+              <h4 className="text-amber-400 font-bold text-sm uppercase tracking-wider mb-3">
                 {t('sitemap')}
               </h4>
               <a
@@ -188,9 +188,9 @@ export function Footer() {
       </div>
 
       {/* Social badges */}
-      <div className="border-t border-amber-500/20 py-8">
-        <div className="container">
-          <div className="flex flex-wrap justify-center gap-4 mb-8">
+      <div className="border-t border-amber-500/20 py-6">
+        <div className="container max-w-6xl mx-auto px-4">
+          <div className="flex flex-wrap justify-center gap-3 mb-6">
             {socialLinks.map(({ name, url, icon: Icon }) => (
               <a
                 key={name}
@@ -205,7 +205,7 @@ export function Footer() {
             ))}
           </div>
           {/* Copyright + Legal links */}
-          <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-sm text-gray-500">
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-3 text-sm text-gray-500">
             <span>© 2026 Goldie XO. {t('rights')}.</span>
             <div className="flex gap-6">
               <Link href="/privacy" className="hover:text-amber-400 transition-colors">
