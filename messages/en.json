@@ -62,11 +62,52 @@
   },
   "book": {
     "title": "The Beat Goes On",
-    "subtitle": "A Memoir by DJ Goldie XO",
-    "text": "From the streets of NYC to the world's biggest stages, discover the journey of DJ Goldie XO. A story of passion, rhythm, and breaking boundaries.",
+    "subtitle": "A Memoir by Goldie XO",
+    "text": "From the streets of NYC to the world's biggest stages, discover the journey of Goldie XO. A story of passion, rhythm, and breaking boundaries.",
     "preorder": "Preorder Now",
-    "description": "From the streets of NYC to the world's biggest stages, discover the journey of DJ Goldie XO. A story of passion, rhythm, and breaking boundaries.",
+    "description": "From the streets of NYC to the world's biggest stages, discover the journey of Goldie XO. A story of passion, rhythm, and breaking boundaries.",
     "availableSoon": "Available Soon",
+    "hero": {
+      "tagline": "Through Love, Loss, and Becoming.",
+      "releaseDate": "January 1, 2027"
+    },
+    "synopsis": {
+      "title": "A Memoir on Resilience, Discipline, and Forward Momentum",
+      "text": "From the streets of NYC to the world's biggest stages, discover the journey of Goldie XO. A story of passion, rhythm, and breaking boundaries."
+    },
+    "purchase": {
+      "title": "Where to Buy",
+      "preorderNow": "Preorder Now",
+      "buyOnAmazon": "Amazon",
+      "buyOnBarnesNoble": "Barnes & Noble",
+      "buyOnAppleBooks": "Apple Books"
+    },
+    "endorsements": {
+      "title": "Praise for The Beat Goes On",
+      "quotes": {
+        "0": { "text": "A powerful story of resilience and rhythm.", "author": "Reader" },
+        "1": { "text": "Goldie XO brings the same energy to the page as to the stage.", "author": "Fan" },
+        "2": { "text": "Inspiring and unforgettable.", "author": "Reviewer" }
+      }
+    },
+    "inside": {
+      "title": "Inside the Book",
+      "chapters": {
+        "0": "Prologue",
+        "1": "Beginnings",
+        "2": "The Turn",
+        "3": "Finding the Beat",
+        "4": "Stages",
+        "5": "Love & Loss",
+        "6": "Forward Momentum",
+        "7": "Epilogue"
+      }
+    },
+    "podcastPromo": {
+      "title": "Hear More on the Podcast",
+      "description": "Dive deeper into the stories behind the memoir.",
+      "cta": "Listen to the Podcast"
+    },
     "preview": {
       "title": "Preview",
       "download": "Download PDF"

@@ -61,12 +61,53 @@
     "subtitle": "Última Mezcla"
   },
   "book": {
-    "title": "El Ritmo Continúa",
-    "subtitle": "Una Memoria de DJ Goldie XO",
-    "text": "Desde las calles de NYC hasta los escenarios más grandes del mundo, descubre el viaje de DJ Goldie XO. Una historia de pasión, ritmo y rompiendo barreras.",
+    "title": "The Beat Goes On",
+    "subtitle": "Una Memoria de Goldie XO",
+    "text": "Desde las calles de NYC hasta los escenarios más grandes del mundo, descubre el viaje de Goldie XO. Una historia de pasión, ritmo y rompiendo barreras.",
     "preorder": "Preordenar Ahora",
-    "description": "Desde las calles de NYC hasta los escenarios más grandes del mundo, descubre el viaje de DJ Goldie XO. Una historia de pasión, ritmo y rompiendo barreras.",
+    "description": "Desde las calles de NYC hasta los escenarios más grandes del mundo, descubre el viaje de Goldie XO. Una historia de pasión, ritmo y rompiendo barreras.",
     "availableSoon": "Disponible Pronto",
+    "hero": {
+      "tagline": "Through Love, Loss, and Becoming.",
+      "releaseDate": "January 1, 2027"
+    },
+    "synopsis": {
+      "title": "A Memoir on Resilience, Discipline, and Forward Momentum",
+      "text": "Desde las calles de NYC hasta los escenarios más grandes del mundo, descubre el viaje de Goldie XO. Una historia de pasión, ritmo y rompiendo barreras."
+    },
+    "purchase": {
+      "title": "Dónde Comprar",
+      "preorderNow": "Preordenar Ahora",
+      "buyOnAmazon": "Amazon",
+      "buyOnBarnesNoble": "Barnes & Noble",
+      "buyOnAppleBooks": "Apple Books"
+    },
+    "endorsements": {
+      "title": "Elogios para The Beat Goes On",
+      "quotes": {
+        "0": { "text": "Una historia poderosa de resiliencia y ritmo.", "author": "Lector" },
+        "1": { "text": "Goldie XO lleva la misma energía a la página que al escenario.", "author": "Fan" },
+        "2": { "text": "Inspirador e inolvidable.", "author": "Crítico" }
+      }
+    },
+    "inside": {
+      "title": "Dentro del Libro",
+      "chapters": {
+        "0": "Prólogo",
+        "1": "Comienzos",
+        "2": "El Cambio",
+        "3": "Encontrando el Ritmo",
+        "4": "Escenarios",
+        "5": "Amor y Pérdida",
+        "6": "Impulso Hacia Adelante",
+        "7": "Epílogo"
+      }
+    },
+    "podcastPromo": {
+      "title": "Más en el Podcast",
+      "description": "Profundiza en las historias detrás de la memoria.",
+      "cta": "Escuchar el Podcast"
+    },
     "preview": {
       "title": "Vista Previa",
       "download": "Descargar PDF"

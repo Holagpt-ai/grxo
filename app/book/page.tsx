@@ -2,6 +2,7 @@
 
 import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { GoldHeart } from '@/components/GoldHeart';
 import { ShoppingBag, ExternalLink, Download } from 'lucide-react';
@@ -37,39 +38,24 @@ export default function Book() {
         
         <div className="container relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
-            {/* Abstract Book Cover */}
+            {/* Book Cover – homepage hero image */}
             <div className="relative">
-              <div className="relative aspect-[3/4] max-w-md mx-auto">
-                {/* Book Cover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black border-2 border-amber-500/50 rounded-lg shadow-[0_0_60px_rgba(251,191,36,0.3)] overflow-hidden">
-                  {/* Abstract Background */}
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center opacity-30 mix-blend-screen"
-                    style={{ backgroundImage: 'url(/images/picgold.png)' }}
-                    aria-hidden="true"
-                    role="presentation"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-br from-cyan-500/20 via-magenta-500/20 to-yellow-500/20" />
-                  
-                  {/* Content */}
-                  <div className="relative h-full flex flex-col justify-between p-8">
-                    <div>
-                      <GoldHeart size={50} className="mb-4" />
-                      <h2 className="text-4xl font-black text-amber-400 mb-2">
-                        {t('title')}
-                      </h2>
-                      <p className="text-lg text-gray-300">{t('subtitle')}</p>
-                    </div>
-                    
-                    <div className="text-right">
-                      <p className="text-sm text-amber-400 font-semibold">DJ GOLDIE XO</p>
-                    </div>
-                  </div>
+              <div className="relative aspect-[3/4] max-w-md mx-auto rounded-lg overflow-hidden border-2 border-amber-500/30 shadow-[0_0_60px_rgba(251,191,36,0.2)]">
+                <Image
+                  src="/images/GXOMainHeadshotWebsite.JPG"
+                  alt="The Beat Goes On book cover"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 50vw"
+                  className="object-cover object-center"
+                  priority
+                />
+                {/* Gradient overlay for author line readability */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent pointer-events-none" />
+                <div className="absolute bottom-0 left-0 right-0 p-6 text-right">
+                  <p className="text-sm text-amber-400 font-semibold">Goldie XO</p>
                 </div>
-
-                {/* Glow Effect */}
-                <div className="absolute inset-0 bg-gradient-to-br from-amber-500/20 to-yellow-500/20 blur-3xl -z-10" />
               </div>
+              <div className="absolute inset-0 bg-gradient-to-br from-amber-500/10 to-yellow-500/10 blur-3xl -z-10 rounded-lg" />
             </div>
 
             {/* Book Info */}
