@@ -23,7 +23,7 @@ export default function About() {
     t('venues.list.5'),
     t('venues.list.6'),
     t('venues.list.7'),
-  ];
+  ] as string[];
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -70,12 +70,12 @@ export default function About() {
       </section>
 
       {/* Main Content - Two Column Layout */}
-      <section className="py-24 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
+      <section className="py-16 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-20 left-0 w-96 h-96 bg-amber-500/5 rounded-full blur-3xl" />
         <div className="absolute bottom-20 right-0 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl" />
         
-        <div className="container relative z-10">
+        <div className="container max-w-6xl mx-auto px-4 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Left Column - Bio */}
             <div className="lg:col-span-2 space-y-8">

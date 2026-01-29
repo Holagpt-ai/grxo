@@ -21,7 +21,7 @@ import { Input } from '@/components/ui/input';
 import { GoldHeart } from './GoldHeart';
 import { toast } from 'sonner';
 
-const quickLinks: { key: string; path: string }[] = [
+const quickLinks: { key: string; path: string; useFooterLabel?: boolean }[] = [
   { key: 'home', path: '/' },
   { key: 'about', path: '/about' },
   { key: 'music', path: '/music' },
@@ -30,6 +30,8 @@ const quickLinks: { key: string; path: string }[] = [
   { key: 'contact', path: '/contact' },
   { key: 'tourDates', path: '/tour-dates' },
   { key: 'podcast', path: '/podcast' },
+  { key: 'privacy', path: '/privacy', useFooterLabel: true },
+  { key: 'terms', path: '/terms', useFooterLabel: true },
 ];
 
 const socialLinks: { name: string; url: string; icon: LucideIcon }[] = [
@@ -133,13 +135,13 @@ export function Footer() {
                 {t('quickLinks')}
               </h4>
               <ul className="space-y-1.5">
-                {quickLinks.map(({ key, path }) => (
+                {quickLinks.map(({ key, path, useFooterLabel }) => (
                   <li key={key}>
                     <Link
                       href={path}
                       className="text-gray-400 hover:text-amber-400 transition-colors text-sm"
                     >
-                      {tNav(key)}
+                      {useFooterLabel ? t(key) : tNav(key)}
                     </Link>
                   </li>
                 ))}

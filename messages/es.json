@@ -22,9 +22,37 @@
   },
   "about": {
     "title": "Acerca de Goldie XO",
-    "text": "Nacida y criada en el corazón de la ciudad de Nueva York, DJ Goldie XO trae una fusión electrizante de EDM y Latin House a escenarios de todo el mundo. Con un sonido característico que mezcla ritmos pulsantes con ritmos latinos, Goldie se ha convertido en una fuerza en la escena de clubes underground y más allá.",
-    "teaser": "Nacida y criada en el corazón de la ciudad de Nueva York, DJ Goldie XO trae una fusión electrizante de EDM y Latin House a escenarios de todo el mundo. Con un sonido característico que mezcla ritmos pulsantes con ritmos latinos, Goldie se ha convertido en una fuerza en la escena de clubes underground y más allá.",
-    "readMore": "Leer Más"
+    "headline": "EDM y Latin House desde NYC — De la calle al escenario",
+    "text": "Nacida y criada en el corazón de Nueva York, Goldie XO lleva una fusión electrizante de EDM y Latin House a escenarios de todo el mundo. Con un sonido que mezcla ritmos pulsantes con ritmos latinos, Goldie se ha convertido en una fuerza en la escena underground y más allá.",
+    "teaser": "Nacida y criada en el corazón de Nueva York, Goldie XO lleva una fusión electrizante de EDM y Latin House a escenarios de todo el mundo. Con un sonido que mezcla ritmos pulsantes con ritmos latinos, Goldie se ha convertido en una fuerza en la escena underground y más allá.",
+    "readMore": "Leer Más",
+    "bio": {
+      "paragraph1": "La historia de Goldie XO es de resiliencia y ritmo. Nacida prematuramente y desafiando las expectativas desde el primer día, Goldie creció con Nueva York en las venas: sus calles, sus sonidos y su energía imparable. Un grave accidente automovilístico en la juventud pudo haber terminado el camino, pero se convirtió en un punto de inflexión: la música se volvió el ancla y el escape, y los platos se volvieron hogar.",
+      "paragraph2": "Con raíces en NYC, Goldie se abrió camino en la escena underground de la ciudad, mezclando EDM con Latin House y creando un sonido a la vez íntimo y explosivo. De fiestas en sótanos a escenarios principales, el viaje ha sido impulsado por la creencia de que la música puede sanar, conectar y transformar.",
+      "quote": "El beat no le importa de dónde vienes. Solo quiere que te muevas.",
+      "paragraph3": "Hoy Goldie XO lleva esa misma pasión a cada set — ya sea en un club repleto, un festival o detrás del micrófono en el podcast. El ritmo continúa, y la historia también."
+    },
+    "stats": {
+      "title": "Destacados",
+      "based": "Base",
+      "genre": "Género",
+      "experience": "Experiencia",
+      "shows": "Shows",
+      "festivals": "Festivales"
+    },
+    "venues": {
+      "title": "Venues y Eventos",
+      "list": {
+        "0": "Clubes y underground NYC",
+        "1": "Noches Latin House",
+        "2": "Festivales EDM",
+        "3": "Eventos privados",
+        "4": "Radio y podcasts",
+        "5": "Bookings internacionales",
+        "6": "Residencias",
+        "7": "Colaboraciones"
+      }
+    }
   },
   "currentlySpinning": {
     "title": "Sonando Ahora",
