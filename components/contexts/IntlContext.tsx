@@ -4,6 +4,8 @@ import { createContext, useContext, useState, useEffect, ReactNode } from 'react
 import { IntlProvider as NextIntlProvider } from 'next-intl';
 import Cookies from 'js-cookie';
 import { Locale, defaultLocale, locales } from '@/lib/i18n';
+// Preload default locale messages so SSG and first paint have messages (avoids MISSING_MESSAGE)
+import defaultMessages from '@/messages/en.json';
 
 interface IntlContextType {
   locale: Locale;
@@ -34,7 +36,9 @@ function getInitialLocale(): Locale {
 
 export function IntlProvider({ children }: { children: ReactNode }) {
   const [locale, setLocaleState] = useState<Locale>(getInitialLocale);
-  const [messages, setMessages] = useState<Record<string, any>>({});
+  const [messages, setMessages] = useState<Record<string, unknown>>(
+    () => (defaultMessages as Record<string, unknown>) ?? {}
+  );
 
   useEffect(() => {
     // Load messages for current locale
