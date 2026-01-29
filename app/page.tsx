@@ -3,6 +3,7 @@
 import { useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 import dynamic from 'next/dynamic';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
 import { GoldHeart } from '@/components/GoldHeart';
 import Link from 'next/link';
@@ -31,41 +32,10 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-black text-white">
-      {/* Hero Section */}
-      {/* Note: Images are in /public/images/ - add real images: GXOMainHeadshotWebsite.JPG (hero headshot), picgold.png (gold heart/logo) */}
-      <section className="relative min-h-[calc(100vh-4rem)] flex items-center justify-center overflow-hidden px-4 pt-24 pb-12">
-        {/* Background with abstract portrait */}
-        <div className="absolute inset-0">
-          {/* Base image with blend modes for neon effect */}
-          <div 
-            className="absolute inset-0 bg-cover bg-center opacity-40"
-            style={{ 
-              backgroundImage: 'url(/images/GXOMainHeadshotWebsite.JPG)',
-              filter: 'contrast(1.2) brightness(0.8)',
-            }}
-            aria-hidden="true"
-            role="presentation"
-          />
-          
-          {/* Neon overlay layers */}
-          <div className="absolute inset-0 bg-gradient-to-br from-magenta-500/20 via-transparent to-cyan-500/20 mix-blend-screen" aria-hidden="true" />
-          <div className="absolute inset-0 bg-gradient-to-tl from-yellow-400/15 via-transparent to-lime-400/15 mix-blend-screen" aria-hidden="true" />
-          
-          {/* Paint splatter effect */}
-          <div 
-            className="absolute inset-0 opacity-30 mix-blend-color-dodge"
-            style={{
-              backgroundImage: 'url(/images/picgold.png)',
-              backgroundSize: 'cover',
-              backgroundPosition: 'center',
-            }}
-            aria-hidden="true"
-            role="presentation"
-          />
-          
-          {/* Dark gradient overlay for text readability */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/60 via-black/40 to-black" />
-        </div>
+      {/* Hero Section – single main Goldie headshot, no overlapping background */}
+      <section className="relative min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center overflow-hidden px-4 pt-24 pb-12">
+        {/* Dark background only – no duplicate/overlapping photo */}
+        <div className="absolute inset-0 bg-gradient-to-b from-black via-gray-900/95 to-black" />
 
         {/* Floating gold heart logo */}
         <motion.div 
@@ -76,6 +46,25 @@ export default function Home() {
           whileHover={{ scale: 1.1, rotate: 5 }}
         >
           <GoldHeart size={80} className="animate-pulse-slow" />
+        </motion.div>
+
+        {/* Main headshot – single clean photo (no overlapping background) */}
+        <motion.div
+          className="relative z-0 w-full max-w-md mx-auto mb-8 md:mb-10 flex-shrink-0"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+        >
+          <div className="relative aspect-[3/4] w-full max-w-sm mx-auto rounded-2xl overflow-hidden border-2 border-amber-500/30 shadow-[0_0_40px_rgba(251,191,36,0.2)]">
+            <Image
+              src="/images/GXOMainHeadshotWebsite.JPG"
+              alt="Goldie XO"
+              fill
+              sizes="(max-width: 768px) 90vw, 384px"
+              className="object-cover"
+              priority
+            />
+          </div>
         </motion.div>
 
         {/* Content */}
