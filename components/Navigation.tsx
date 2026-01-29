@@ -31,9 +31,9 @@ export function Navigation() {
   };
 
   return (
-    <nav className="sticky top-0 z-50 bg-black/95 backdrop-blur-sm border-b border-amber-500/20">
-      <div className="container mx-auto px-4">
-        <div className="flex items-center justify-between h-16">
+    <nav className="sticky top-0 z-50 bg-black/95 backdrop-blur-sm border-b border-amber-500/20 overflow-x-hidden">
+      <div className="container mx-auto px-4 sm:px-6 md:px-8">
+        <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo – Goldie XO link to home */}
           <Link
             href="/"
@@ -78,11 +78,11 @@ export function Navigation() {
             <LanguageToggle />
           </div>
 
-          {/* Mobile Menu Button */}
+          {/* Mobile Menu Button – 44×44px tap target */}
           <Button
             variant="ghost"
             size="sm"
-            className="md:hidden text-amber-400"
+            className="md:hidden text-amber-400 min-h-[44px] min-w-[44px] p-3"
             onClick={() => setIsMenuOpen(!isMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -103,7 +103,7 @@ export function Navigation() {
                     prefetch={true}
                     onClick={() => setIsMenuOpen(false)}
                     className={`
-                      relative px-2 py-2 rounded-lg text-sm font-medium transition-all duration-300
+                      relative block min-h-[44px] min-w-[44px] px-4 py-3 rounded-lg text-base font-medium transition-all duration-300 flex items-center
                       ${
                         active
                           ? 'text-amber-400 bg-amber-500/10 border-l-4 border-amber-500 shadow-[0_0_15px_rgba(251,191,36,0.2)]'

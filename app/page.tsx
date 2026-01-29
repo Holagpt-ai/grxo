@@ -31,16 +31,16 @@ export default function Home() {
   const tBook = useTranslations('book');
 
   return (
-    <main className="min-h-screen bg-black text-white">
-      {/* Hero Section – full-bleed image, seamless blend, luxurious header */}
-      <section className="relative min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center overflow-hidden">
-        {/* Full-width hero image – no borders, no box, blends into section */}
+    <main className="min-h-screen bg-black text-white overflow-x-hidden">
+      {/* Hero Section – responsive, full-bleed image */}
+      <section className="relative min-h-[80vh] sm:min-h-[85vh] lg:min-h-[calc(100vh-4rem)] flex flex-col items-center justify-center overflow-hidden">
+        {/* Full-width hero image – responsive sizes */}
         <div className="absolute inset-0 rounded-none">
           <Image
             src="/images/GXOMainHeadshotWebsite.JPG"
             alt="Goldie XO portrait"
             fill
-            sizes="100vw"
+            sizes="(max-width: 768px) 100vw, 50vw"
             className="object-cover object-center"
             priority
           />
@@ -51,7 +51,7 @@ export default function Home() {
 
         {/* Floating gold heart logo */}
         <motion.div 
-          className="absolute top-20 right-10 md:top-32 md:right-20 z-10"
+          className="absolute top-16 right-4 sm:top-20 sm:right-10 md:top-32 md:right-20 z-10"
           initial={{ opacity: 0, scale: 0.8, rotate: -10 }}
           animate={{ opacity: 1, scale: 1, rotate: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
@@ -60,16 +60,16 @@ export default function Home() {
           <GoldHeart size={80} className="animate-pulse-slow drop-shadow-[0_0_20px_rgba(251,191,36,0.5)]" />
         </motion.div>
 
-        {/* Content – larger typography, more spacing, gold accents, fade-in */}
-        <div className="relative z-10 container max-w-7xl mx-auto px-4 md:px-8 pt-24 pb-16 text-center">
+        {/* Content – responsive typography, full-width buttons on mobile */}
+        <div className="relative z-10 container max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 pt-20 sm:pt-24 pb-12 sm:pb-16 text-center">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="flex flex-col items-center"
+            className="flex flex-col items-center w-full"
           >
             <motion.h1 
-              className="text-6xl md:text-7xl lg:text-8xl font-black mb-6 md:mb-8 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-clip-text text-transparent animate-gradient drop-shadow-[0_0_40px_rgba(251,191,36,0.6)] [text-shadow:0_0_60px_rgba(251,191,36,0.3)]"
+              className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-4 sm:mb-6 md:mb-8 bg-gradient-to-r from-amber-400 via-yellow-500 to-amber-400 bg-clip-text text-transparent animate-gradient drop-shadow-[0_0_40px_rgba(251,191,36,0.6)] [text-shadow:0_0_60px_rgba(251,191,36,0.3)]"
               initial={{ opacity: 0, y: 24 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
@@ -77,7 +77,7 @@ export default function Home() {
               {tHero('headline')}
             </motion.h1>
             <motion.p 
-              className="text-2xl md:text-3xl text-amber-200 mb-6 font-semibold tracking-wide drop-shadow-[0_0_15px_rgba(251,191,36,0.5)]"
+              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-amber-200 mb-4 sm:mb-6 font-semibold tracking-wide drop-shadow-[0_0_15px_rgba(251,191,36,0.5)]"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.4, ease: "easeOut" }}
@@ -85,7 +85,7 @@ export default function Home() {
               {tHero('subheadline')}
             </motion.p>
             <motion.p 
-              className="text-lg md:text-xl text-gray-300 mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed"
+              className="text-base sm:text-lg md:text-xl text-gray-300 mb-6 sm:mb-8 md:mb-10 max-w-2xl mx-auto leading-relaxed"
               initial={{ opacity: 0, y: 16 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.55, ease: "easeOut" }}
@@ -94,35 +94,27 @@ export default function Home() {
             </motion.p>
             
             <motion.div 
-              className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center items-center"
+              className="flex flex-col sm:flex-row gap-3 sm:gap-4 md:gap-6 justify-center items-stretch sm:items-center w-full sm:w-auto max-w-sm sm:max-w-none mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.75, ease: "easeOut" }}
             >
-              <motion.div
-                whileHover={{ scale: 1.06 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              >
-                <Link href="/music">
+              <motion.div className="w-full sm:w-auto min-h-[44px] flex" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
+                <Link href="/music" className="w-full sm:w-auto flex min-h-[44px]">
                   <Button 
                     size="lg"
-                    className="bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-black font-black text-xl px-10 py-7 shadow-[0_0_40px_rgba(251,191,36,0.4)] hover:shadow-[0_0_60px_rgba(251,191,36,0.6)] transition-all duration-300 border-0"
+                    className="w-full sm:w-auto min-h-[48px] min-w-[44px] bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-400 hover:to-yellow-500 text-black font-black text-base sm:text-lg md:text-xl px-6 sm:px-8 md:px-10 py-5 sm:py-6 md:py-7 shadow-[0_0_40px_rgba(251,191,36,0.4)] hover:shadow-[0_0_60px_rgba(251,191,36,0.6)] transition-all duration-300 border-0"
                   >
                     {tHero('listenNow')}
                   </Button>
                 </Link>
               </motion.div>
-              <motion.div
-                whileHover={{ scale: 1.06 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: "spring", stiffness: 400, damping: 17 }}
-              >
-                <Link href="/book">
+              <motion.div className="w-full sm:w-auto min-h-[44px] flex" whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }} transition={{ type: "spring", stiffness: 400, damping: 17 }}>
+                <Link href="/book" className="w-full sm:w-auto flex min-h-[44px]">
                   <Button 
                     size="lg"
                     variant="outline"
-                    className="border-2 border-amber-400/90 text-amber-300 hover:bg-amber-500/20 font-bold text-xl px-10 py-7 backdrop-blur-sm hover:shadow-[0_0_40px_rgba(251,191,36,0.4)] transition-all duration-300"
+                    className="w-full sm:w-auto min-h-[48px] min-w-[44px] border-2 border-amber-400/90 text-amber-300 hover:bg-amber-500/20 font-bold text-base sm:text-lg md:text-xl px-6 sm:px-8 md:px-10 py-5 sm:py-6 md:py-7 backdrop-blur-sm hover:shadow-[0_0_40px_rgba(251,191,36,0.4)] transition-all duration-300"
                   >
                     {tHero('preorderBook')}
                   </Button>
@@ -138,7 +130,7 @@ export default function Home() {
 
       {/* About Teaser Section */}
       <motion.section 
-        className="py-12 md:py-16 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden"
+        className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-black via-gray-900 to-black relative overflow-hidden"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -148,7 +140,7 @@ export default function Home() {
         <div className="absolute top-0 left-0 w-64 h-64 bg-amber-500/5 rounded-full blur-3xl" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-yellow-500/5 rounded-full blur-3xl" />
         
-        <div className="container max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+        <div className="container max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
           <div className="max-w-4xl mx-auto">
             <motion.div 
               className="flex flex-col md:flex-row items-center gap-6"
@@ -197,13 +189,13 @@ export default function Home() {
 
       {/* Currently Spinning Section */}
       <motion.section 
-        className="py-12 md:py-16 bg-gradient-to-r from-gray-900 via-black to-gray-900 border-y border-amber-500/20"
+        className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-r from-gray-900 via-black to-gray-900 border-y border-amber-500/20"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
       >
-        <div className="container max-w-7xl mx-auto px-4 md:px-6">
+        <div className="container max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12">
           <div className="max-w-3xl mx-auto text-center">
             <motion.h3 
               className="text-3xl md:text-4xl font-bold text-amber-400 mb-3"
@@ -244,7 +236,7 @@ export default function Home() {
 
       {/* Book Highlight Section */}
       <motion.section 
-        className="py-12 md:py-16 bg-gradient-to-b from-black via-purple-900/10 to-black relative overflow-hidden"
+        className="py-12 sm:py-16 md:py-20 lg:py-24 bg-gradient-to-b from-black via-purple-900/10 to-black relative overflow-hidden"
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
@@ -253,7 +245,7 @@ export default function Home() {
         {/* Decorative glow */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-amber-500/10 rounded-full blur-3xl" />
         
-        <div className="container max-w-7xl mx-auto px-4 md:px-6 relative z-10">
+        <div className="container max-w-7xl mx-auto px-4 sm:px-6 md:px-8 lg:px-12 relative z-10">
           <div className="max-w-5xl mx-auto">
             <div className="flex flex-col md:flex-row items-center gap-6 md:gap-8">
               {/* Book cover mockup */}
