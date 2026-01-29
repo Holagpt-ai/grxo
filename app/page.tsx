@@ -58,7 +58,7 @@ export default function Home() {
           <div className="relative aspect-[3/4] w-full max-w-sm mx-auto rounded-2xl overflow-hidden border-2 border-amber-500/30 shadow-[0_0_40px_rgba(251,191,36,0.2)]">
             <Image
               src="/images/GXOMainHeadshotWebsite.JPG"
-              alt="Goldie XO"
+              alt="Goldie XO portrait"
               fill
               sizes="(max-width: 768px) 90vw, 384px"
               className="object-cover"

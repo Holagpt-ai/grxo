@@ -34,14 +34,14 @@ export function Navigation() {
     <nav className="sticky top-0 z-50 bg-black/95 backdrop-blur-sm border-b border-amber-500/20">
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          {/* Logo – GXO link to home */}
+          {/* Logo – Goldie XO link to home */}
           <Link
             href="/"
             prefetch={true}
-            className="text-2xl font-bold bg-gradient-to-r from-amber-400 to-yellow-500 bg-clip-text text-transparent hover:from-amber-300 hover:to-yellow-400 transition-all"
+            className="text-xl md:text-2xl font-bold bg-gradient-to-r from-amber-400 to-yellow-500 bg-clip-text text-transparent hover:from-amber-300 hover:to-yellow-400 transition-all"
             aria-label="Goldie XO – Home"
           >
-            GXO
+            Goldie XO
           </Link>
 
           {/* Desktop Navigation */}
