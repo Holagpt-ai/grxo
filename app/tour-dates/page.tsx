@@ -3,162 +3,16 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { GoldHeart } from '@/components/GoldHeart';
 import { Calendar, MapPin, Ticket, ExternalLink } from 'lucide-react';
 import { toast } from 'sonner';
+import { upcomingTours, pastTours } from '@/shared/tours';
 
-// Lazy load Footer component
 const Footer = dynamic(() => import('@/components/Footer').then(mod => ({ default: mod.Footer })), {
   ssr: true,
 });
-
-interface TourDate {
-  id: number;
-  date: string;
-  city: string;
-  venue: string;
-  country: string;
-  featured: boolean;
-  soldOut: boolean;
-  ticketUrl: string;
-}
-
-const upcomingShows: TourDate[] = [
-  {
-    id: 1,
-    date: 'Mar 15, 2024',
-    city: 'Miami',
-    venue: 'E11EVEN Miami',
-    country: 'USA',
-    featured: true,
-    soldOut: false,
-    ticketUrl: '#',
-  },
-  {
-    id: 2,
-    date: 'Mar 22, 2024',
-    city: 'New York',
-    venue: 'Brooklyn Mirage',
-    country: 'USA',
-    featured: true,
-    soldOut: false,
-    ticketUrl: '#',
-  },
-  {
-    id: 3,
-    date: 'Apr 5, 2024',
-    city: 'Los Angeles',
-    venue: 'Exchange LA',
-    country: 'USA',
-    featured: false,
-    soldOut: false,
-    ticketUrl: '#',
-  },
-  {
-    id: 4,
-    date: 'Apr 12, 2024',
-    city: 'Chicago',
-    venue: 'PRYSM Nightclub',
-    country: 'USA',
-    featured: false,
-    soldOut: true,
-    ticketUrl: '#',
-  },
-  {
-    id: 5,
-    date: 'Apr 20, 2024',
-    city: 'Las Vegas',
-    venue: 'Hakkasan',
-    country: 'USA',
-    featured: false,
-    soldOut: false,
-    ticketUrl: '#',
-  },
-  {
-    id: 6,
-    date: 'May 3, 2024',
-    city: 'San Francisco',
-    venue: 'The Midway',
-    country: 'USA',
-    featured: false,
-    soldOut: false,
-    ticketUrl: '#',
-  },
-  {
-    id: 7,
-    date: 'May 18, 2024',
-    city: 'Toronto',
-    venue: 'Rebel Nightclub',
-    country: 'Canada',
-    featured: false,
-    soldOut: false,
-    ticketUrl: '#',
-  },
-  {
-    id: 8,
-    date: 'Jun 1, 2024',
-    city: 'London',
-    venue: 'Fabric',
-    country: 'UK',
-    featured: false,
-    soldOut: false,
-    ticketUrl: '#',
-  },
-  {
-    id: 9,
-    date: 'Jun 15, 2024',
-    city: 'Ibiza',
-    venue: 'Amnesia',
-    country: 'Spain',
-    featured: true,
-    soldOut: false,
-    ticketUrl: '#',
-  },
-  {
-    id: 10,
-    date: 'Jul 4, 2024',
-    city: 'Miami',
-    venue: 'Ultra Music Festival',
-    country: 'USA',
-    featured: true,
-    soldOut: false,
-    ticketUrl: '#',
-  },
-];
-
-const pastShows: TourDate[] = [
-  {
-    id: 11,
-    date: 'Feb 14, 2024',
-    city: 'New York',
-    venue: 'Output Brooklyn',
-    country: 'USA',
-    featured: false,
-    soldOut: true,
-    ticketUrl: '#',
-  },
-  {
-    id: 12,
-    date: 'Jan 20, 2024',
-    city: 'Miami',
-    venue: 'Space Miami',
-    country: 'USA',
-    featured: false,
-    soldOut: true,
-    ticketUrl: '#',
-  },
-  {
-    id: 13,
-    date: 'Dec 31, 2023',
-    city: 'Las Vegas',
-    venue: 'Omnia',
-    country: 'USA',
-    featured: true,
-    soldOut: true,
-    ticketUrl: '#',
-  },
-];
 
 export default function TourDates() {
   const t = useTranslations('tourDates');
@@ -170,7 +24,7 @@ export default function TourDates() {
     });
   };
 
-  const displayShows = showPast ? pastShows : upcomingShows;
+  const displayShows = showPast ? pastTours : upcomingTours;
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -260,7 +114,9 @@ export default function TourDates() {
                                   {t('featured')}
                                 </div>
                               )}
-                              <h3 className="text-xl font-bold text-white mb-1">{show.venue}</h3>
+                              <Link href={`/tours/${show.slug}`} className="block group">
+                                <h3 className="text-xl font-bold text-white mb-1 group-hover:text-amber-400 transition-colors">{show.venue}</h3>
+                              </Link>
                               <div className="flex items-center gap-2 text-amber-400">
                                 <MapPin size={16} />
                                 <span className="font-semibold">{show.city}, {show.country}</span>
@@ -287,9 +143,12 @@ export default function TourDates() {
                               <Button
                                 variant="outline"
                                 className="border-amber-500/30 text-amber-400 hover:bg-amber-500/10"
+                                asChild
                               >
-                                <ExternalLink size={16} className="mr-2" />
-                                {t('moreInfo')}
+                                <Link href={`/tours/${show.slug}`}>
+                                  <ExternalLink size={16} className="mr-2" />
+                                  {t('moreInfo')}
+                                </Link>
                               </Button>
                             </>
                           ) : (

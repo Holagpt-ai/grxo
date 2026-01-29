@@ -38,9 +38,42 @@
     "text": "Desde las calles de NYC hasta los escenarios más grandes del mundo, descubre el viaje de DJ Goldie XO. Una historia de pasión, ritmo y rompiendo barreras.",
     "preorder": "Preordenar Ahora",
     "description": "Desde las calles de NYC hasta los escenarios más grandes del mundo, descubre el viaje de DJ Goldie XO. Una historia de pasión, ritmo y rompiendo barreras.",
-    "availableSoon": "Disponible Pronto"
+    "availableSoon": "Disponible Pronto",
+    "preview": {
+      "title": "Vista Previa",
+      "download": "Descargar PDF"
+    }
+  },
+  "contact": {
+    "title": "Contáctame",
+    "subtitle": "Conectemos",
+    "description": "Escríbenos para reservas, prensa o consultas generales.",
+    "form": {
+      "name": "Nombre",
+      "email": "Correo",
+      "subject": "Asunto",
+      "subjectBookings": "Reservas",
+      "subjectPress": "Prensa",
+      "subjectGeneral": "Consulta general",
+      "message": "Mensaje",
+      "send": "Enviar mensaje",
+      "sending": "Enviando...",
+      "success": "¡Mensaje enviado! Te responderemos pronto."
+    },
+    "info": {
+      "title": "Información de contacto",
+      "bookings": "Reservas",
+      "bookingsEmail": "bookings@goldiexo.com",
+      "management": "Management",
+      "managementEmail": "management@goldiexo.com",
+      "press": "Prensa",
+      "pressEmail": "press@goldiexo.com"
+    }
   },
   "footer": {
+    "quickLinks": "Enlaces Rápidos",
+    "legal": "Legal",
+    "sitemap": "Mapa del Sitio",
     "subscribe": "Suscríbete para recibir las últimas mezclas, fechas de tour y contenido exclusivo",
     "button": "Suscribirse",
     "copyright": "© 2026 DJ Goldie XO. Todos los derechos reservados.",

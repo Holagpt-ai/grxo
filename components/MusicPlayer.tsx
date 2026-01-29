@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useRef } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import dynamic from 'next/dynamic';
 import { Play, Pause, Volume2, VolumeX } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { GoldHeart } from '@/components/GoldHeart';
 
-// Dynamically import react-player to avoid SSR issues
+// Dynamically import react-player (SoundCloud, Spotify, etc.) to avoid SSR issues
 const ReactPlayer = dynamic(() => import('react-player'), { ssr: false });
 
 interface MusicPlayerProps {
@@ -16,14 +16,22 @@ interface MusicPlayerProps {
   year?: string;
 }
 
-export function MusicPlayer({ url, title = 'Latin House Fusion Mix', artist = 'DJ Goldie XO', year = '2024' }: MusicPlayerProps) {
+export function MusicPlayer({ url, title = 'Latin House Fusion Mix', artist = 'Goldie XO', year = '2024' }: MusicPlayerProps) {
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(0.7);
   const [isMuted, setIsMuted] = useState(false);
   const [played, setPlayed] = useState(0);
   const [duration, setDuration] = useState(0);
   const [isReady, setIsReady] = useState(false);
+  const [waveformTick, setWaveformTick] = useState(0);
   const playerRef = useRef<any>(null);
+
+  // Animate waveform bars when playing
+  useEffect(() => {
+    if (!isPlaying) return;
+    const id = setInterval(() => setWaveformTick((t) => t + 1), 120);
+    return () => clearInterval(id);
+  }, [isPlaying]);
 
   const handlePlayPause = () => {
     setIsPlaying(!isPlaying);
@@ -80,41 +88,43 @@ export function MusicPlayer({ url, title = 'Latin House Fusion Mix', artist = 'D
         </div>
       </div>
 
-      {/* Hidden React Player */}
-      <div className="hidden">
+      {/* Real SoundCloud / Spotify embed – visible so it loads and plays */}
+      <div className="rounded-lg overflow-hidden bg-gray-800/50 mb-6" style={{ minHeight: 166 }}>
         <ReactPlayer
           ref={playerRef}
           url={url}
           playing={isPlaying}
           volume={isMuted ? 0 : volume}
           onReady={() => setIsReady(true)}
+          onPlay={() => setIsPlaying(true)}
+          onPause={() => setIsPlaying(false)}
           onProgress={handleProgress}
           onDuration={handleDuration}
           width="100%"
-          height="100%"
+          height={166}
           config={{
             soundcloud: {
               options: {
-                visual: false,
-                show_artwork: false,
+                visual: true,
+                show_artwork: true,
               },
             },
           }}
         />
       </div>
 
-      {/* Waveform Visualization */}
-      <div className="mb-6 flex items-center gap-1 h-12" suppressHydrationWarning>
-        {Array.from({ length: 50 }).map((_, i) => {
-          const baseHeight = Math.sin(i * 0.2) * 30 + 50;
-          const animatedHeight = isPlaying ? baseHeight + Math.sin(Date.now() / 100 + i) * 10 : baseHeight;
+      {/* Waveform visualization – animates when playing */}
+      <div className="mb-6 flex items-center justify-center gap-0.5 h-12" aria-hidden="true">
+        {Array.from({ length: 48 }).map((_, i) => {
+          const baseHeight = Math.sin((i + waveformTick) * 0.15) * 35 + 45;
+          const height = isPlaying ? baseHeight + Math.sin((waveformTick + i) * 0.3) * 12 : 20 + (i % 3) * 8;
           return (
             <div
               key={i}
-              className="flex-1 bg-amber-500/30 rounded-full transition-all duration-150"
+              className="w-1 bg-amber-500/40 rounded-full transition-all duration-150"
               style={{
-                height: `${Math.max(10, Math.min(100, animatedHeight))}%`,
-                opacity: isPlaying ? 0.8 : 0.3,
+                height: `${Math.max(8, Math.min(100, height))}%`,
+                opacity: isPlaying ? 0.9 : 0.4,
               }}
             />
           );

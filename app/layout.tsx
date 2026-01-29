@@ -6,8 +6,8 @@ import Providers from './providers';
 const inter = Inter({ subsets: ['latin'] });
 
 const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://djgoldiexo.com';
-const siteName = 'DJ Goldie XO';
-const siteDescription = 'Official website of DJ Goldie XO - NYC EDM & Latin House DJ. Listen to latest mixes, book shows, shop merch, and discover the electrifying fusion of EDM and Latin House music.';
+const siteName = 'Goldie XO';
+const siteDescription = 'Official website of Goldie XO - NYC EDM & Latin House DJ. Listen to latest mixes, book shows, shop merch, and discover the electrifying fusion of EDM and Latin House music.';
 const siteImage = `${siteUrl}/images/GXOMainHeadshotWebsite.JPG`;
 
 export const metadata: Metadata = {
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   },
   description: siteDescription,
   keywords: [
-    'DJ Goldie XO',
+    'Goldie XO',
     'EDM',
     'Latin House',
     'NYC DJ',
@@ -32,9 +32,9 @@ export const metadata: Metadata = {
     'Reggaeton',
     'Dance Music',
   ],
-  authors: [{ name: 'DJ Goldie XO' }],
-  creator: 'DJ Goldie XO',
-  publisher: 'DJ Goldie XO',
+  authors: [{ name: 'Goldie XO' }],
+  creator: 'Goldie XO',
+  publisher: 'Goldie XO',
   formatDetection: {
     email: false,
     address: false,
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
         url: siteImage,
         width: 1200,
         height: 630,
-        alt: 'DJ Goldie XO - NYC EDM & Latin House DJ',
+        alt: 'Goldie XO - NYC EDM & Latin House DJ',
       },
     ],
   },

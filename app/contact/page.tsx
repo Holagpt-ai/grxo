@@ -1,20 +1,22 @@
 'use client';
 
-import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { z } from 'zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { GoldHeart } from '@/components/GoldHeart';
+import { toast } from 'sonner';
+import { Mail, User, Building2, Calendar } from 'lucide-react';
 
-// Lazy load Footer component
 const Footer = dynamic(() => import('@/components/Footer').then(mod => ({ default: mod.Footer })), {
   ssr: true,
 });
 
-// Lazy load Calendly widget
 const CalendlyWidget = dynamic(() => import('@/components/CalendlyWidget'), {
   ssr: false,
   loading: () => (
@@ -25,47 +27,53 @@ const CalendlyWidget = dynamic(() => import('@/components/CalendlyWidget'), {
   ),
 });
 
-import { toast } from 'sonner';
-import { Mail, User, Building2, Calendar } from 'lucide-react';
+const contactSchema = z.object({
+  name: z.string().trim().min(1, 'Name is required').max(200, 'Name is too long'),
+  email: z.string().trim().min(1, 'Email is required').email('Please enter a valid email address'),
+  subject: z.string().trim().max(200).optional(),
+  message: z.string().trim().min(1, 'Message is required').max(5000, 'Message is too long'),
+});
+
+type ContactFormData = z.infer<typeof contactSchema>;
 
 export default function Contact() {
   const t = useTranslations('contact');
   const tForm = useTranslations('contact.form');
   const tInfo = useTranslations('contact.info');
 
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+    setValue,
+    watch,
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactSchema),
+    defaultValues: { name: '', email: '', subject: '', message: '' },
   });
-  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    
-    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
-      toast.error('Please fill in all fields');
-      return;
-    }
+  const subjectValue = watch('subject');
 
-    if (!formData.email.includes('@')) {
-      toast.error('Please enter a valid email address');
-      return;
-    }
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data),
+      });
+      const result = await response.json();
 
-    setIsSubmitting(true);
-    
-    // Simulate API call (placeholder for now)
-    setTimeout(() => {
+      if (!response.ok) {
+        throw new Error(result.error ?? 'Failed to send message.');
+      }
+
       toast.success(tForm('success'));
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      setIsSubmitting(false);
-    }, 1500);
-  };
-
-  const handleChange = (field: string, value: string) => {
-    setFormData(prev => ({ ...prev, [field]: value }));
+      reset();
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Failed to send. Please try again.';
+      toast.error(message);
+    }
   };
 
   return (
@@ -97,7 +105,7 @@ export default function Contact() {
                 <h2 className="text-4xl font-bold text-amber-400">Book a Show</h2>
               </div>
               <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-                Schedule a consultation or book DJ Goldie XO for your next event. Select a time that works for you.
+                Schedule a consultation or book Goldie XO for your next event. Booking inquiry: select a time below.
               </p>
             </div>
             
@@ -115,7 +123,7 @@ export default function Contact() {
             {/* Contact Form */}
             <div className="lg:col-span-2">
               <div className="bg-gradient-to-br from-gray-900 to-black border border-amber-500/30 rounded-lg p-8 shadow-[0_0_40px_rgba(251,191,36,0.15)]">
-                <form onSubmit={handleSubmit} className="space-y-6">
+                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
                   {/* Name */}
                   <div>
                     <label htmlFor="name" className="block text-amber-400 font-semibold mb-2">
@@ -124,12 +132,16 @@ export default function Contact() {
                     <Input
                       id="name"
                       type="text"
-                      value={formData.name}
-                      onChange={(e) => handleChange('name', e.target.value)}
-                      className="bg-black border-amber-500/30 text-white placeholder:text-gray-500 focus:border-amber-500"
+                      {...register('name')}
+                      className={`bg-black border-amber-500/30 text-white placeholder:text-gray-500 focus:border-amber-500 ${
+                        errors.name ? 'border-red-500 focus:border-red-500' : ''
+                      }`}
                       disabled={isSubmitting}
-                      required
+                      aria-invalid={!!errors.name}
                     />
+                    {errors.name && (
+                      <p className="mt-1 text-sm text-red-400">{errors.name.message}</p>
+                    )}
                   </div>
 
                   {/* Email */}
@@ -140,12 +152,16 @@ export default function Contact() {
                     <Input
                       id="email"
                       type="email"
-                      value={formData.email}
-                      onChange={(e) => handleChange('email', e.target.value)}
-                      className="bg-black border-amber-500/30 text-white placeholder:text-gray-500 focus:border-amber-500"
+                      {...register('email')}
+                      className={`bg-black border-amber-500/30 text-white placeholder:text-gray-500 focus:border-amber-500 ${
+                        errors.email ? 'border-red-500 focus:border-red-500' : ''
+                      }`}
                       disabled={isSubmitting}
-                      required
+                      aria-invalid={!!errors.email}
                     />
+                    {errors.email && (
+                      <p className="mt-1 text-sm text-red-400">{errors.email.message}</p>
+                    )}
                   </div>
 
                   {/* Subject */}
@@ -153,9 +169,9 @@ export default function Contact() {
                     <label htmlFor="subject" className="block text-amber-400 font-semibold mb-2">
                       {tForm('subject')}
                     </label>
-                    <Select 
-                      value={formData.subject} 
-                      onValueChange={(value) => handleChange('subject', value)}
+                    <Select
+                      value={subjectValue ?? ''}
+                      onValueChange={(value) => setValue('subject', value)}
                       disabled={isSubmitting}
                     >
                       <SelectTrigger className="bg-black border-amber-500/30 text-white focus:border-amber-500">
@@ -182,13 +198,17 @@ export default function Contact() {
                     </label>
                     <Textarea
                       id="message"
-                      value={formData.message}
-                      onChange={(e) => handleChange('message', e.target.value)}
                       rows={6}
-                      className="bg-black border-amber-500/30 text-white placeholder:text-gray-500 focus:border-amber-500 resize-none"
+                      {...register('message')}
+                      className={`bg-black border-amber-500/30 text-white placeholder:text-gray-500 focus:border-amber-500 resize-none ${
+                        errors.message ? 'border-red-500 focus:border-red-500' : ''
+                      }`}
                       disabled={isSubmitting}
-                      required
+                      aria-invalid={!!errors.message}
                     />
+                    {errors.message && (
+                      <p className="mt-1 text-sm text-red-400">{errors.message.message}</p>
+                    )}
                   </div>
 
                   {/* Submit Button */}

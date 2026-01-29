@@ -249,9 +249,9 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.4 }}
             >
               <MusicPlayer
-                url="https://soundcloud.com/djgoldiexo/latest-mix"
+                url="https://soundcloud.com/djgoldiexo/latin-house-fusion-mix"
                 title={tSpinning('mixTitle')}
-                artist="DJ Goldie XO"
+                artist="Goldie XO"
                 year="2024"
               />
             </motion.div>

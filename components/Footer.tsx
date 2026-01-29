@@ -4,31 +4,55 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { useTranslations } from 'next-intl';
+import Link from 'next/link';
+import {
+  Instagram,
+  Youtube,
+  Facebook,
+  Twitter,
+  Twitch,
+  Music,
+  Video,
+  Cloud,
+  type LucideIcon,
+} from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { GoldHeart } from './GoldHeart';
 import { toast } from 'sonner';
 
-// Zod schema for email validation
+const quickLinks: { key: string; path: string }[] = [
+  { key: 'home', path: '/' },
+  { key: 'about', path: '/about' },
+  { key: 'music', path: '/music' },
+  { key: 'merch', path: '/merch' },
+  { key: 'book', path: '/book' },
+  { key: 'contact', path: '/contact' },
+  { key: 'tourDates', path: '/tour-dates' },
+  { key: 'podcast', path: '/podcast' },
+];
+
+const socialLinks: { name: string; url: string; icon: LucideIcon }[] = [
+  { name: 'Instagram', url: 'https://instagram.com/goldiexo', icon: Instagram },
+  { name: 'TikTok', url: 'https://tiktok.com/@goldiexo', icon: Video },
+  { name: 'Spotify', url: 'https://open.spotify.com/artist/goldiexo', icon: Music },
+  { name: 'YouTube', url: 'https://youtube.com/@goldiexo', icon: Youtube },
+  { name: 'SoundCloud', url: 'https://soundcloud.com/goldiexo', icon: Cloud },
+  { name: 'X', url: 'https://x.com/goldiexo', icon: Twitter },
+  { name: 'Facebook', url: 'https://facebook.com/goldiexo', icon: Facebook },
+  { name: 'Twitch', url: 'https://twitch.tv/goldiexo', icon: Twitch },
+];
+
+// Zod schema for email validation (trim whitespace)
 const subscribeSchema = z.object({
-  email: z.string().email('Please enter a valid email address').min(1, 'Email is required'),
+  email: z.string().trim().min(1, 'Email is required').email('Please enter a valid email address'),
 });
 
 type SubscribeFormData = z.infer<typeof subscribeSchema>;
 
-const socialLinks = [
-  { name: 'YouTube', icon: 'Y', url: '#' },
-  { name: 'Instagram', icon: 'I', url: '#' },
-  { name: 'Twitch', icon: 'T', url: '#' },
-  { name: 'Spotify', icon: 'S', url: '#' },
-  { name: 'SoundCloud', icon: 'SC', url: '#' },
-  { name: 'Apple Music', icon: 'A', url: '#' },
-  { name: 'Facebook', icon: 'F', url: '#' },
-  { name: 'X', icon: 'X', url: '#' },
-];
-
 export function Footer() {
   const t = useTranslations('footer');
+  const tNav = useTranslations('nav');
   const {
     register,
     handleSubmit,
@@ -42,16 +66,14 @@ export function Footer() {
     try {
       const response = await fetch('/api/subscribe', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ email: data.email }),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ email: data.email.trim() }),
       });
 
       const result = await response.json();
 
       if (!response.ok) {
-        throw new Error(result.error || t('subscribeError'));
+        throw new Error(result.error ?? t('subscribeError'));
       }
 
       toast.success(t('subscribeSuccess'));
@@ -101,32 +123,97 @@ export function Footer() {
         </div>
       </div>
 
-      {/* Social Icons */}
+      {/* Sitemap: Quick Links + Legal + Sitemap XML */}
+      <div className="border-t border-amber-500/20 py-10">
+        <div className="container">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12 max-w-5xl mx-auto">
+            {/* Quick Links */}
+            <div>
+              <h4 className="text-amber-400 font-bold text-sm uppercase tracking-wider mb-4">
+                {t('quickLinks')}
+              </h4>
+              <ul className="space-y-2">
+                {quickLinks.map(({ key, path }) => (
+                  <li key={key}>
+                    <Link
+                      href={path}
+                      className="text-gray-400 hover:text-amber-400 transition-colors text-sm"
+                    >
+                      {tNav(key)}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            {/* Legal */}
+            <div>
+              <h4 className="text-amber-400 font-bold text-sm uppercase tracking-wider mb-4">
+                {t('legal')}
+              </h4>
+              <ul className="space-y-2">
+                <li>
+                  <Link
+                    href="/privacy"
+                    className="text-gray-400 hover:text-amber-400 transition-colors text-sm"
+                  >
+                    {t('privacy')}
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/terms"
+                    className="text-gray-400 hover:text-amber-400 transition-colors text-sm"
+                  >
+                    {t('terms')}
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            {/* Sitemap XML */}
+            <div>
+              <h4 className="text-amber-400 font-bold text-sm uppercase tracking-wider mb-4">
+                {t('sitemap')}
+              </h4>
+              <a
+                href="/sitemap.xml"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-gray-400 hover:text-amber-400 transition-colors text-sm"
+              >
+                sitemap.xml
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Social badges */}
       <div className="border-t border-amber-500/20 py-8">
         <div className="container">
           <div className="flex flex-wrap justify-center gap-4 mb-8">
-            {socialLinks.map((social) => (
+            {socialLinks.map(({ name, url, icon: Icon }) => (
               <a
-                key={social.name}
-                href={social.url}
-                className="w-12 h-12 rounded-full border-2 border-gray-600 flex items-center justify-center text-gray-400 hover:border-amber-400 hover:text-amber-400 hover:shadow-[0_0_15px_rgba(251,191,36,0.4)] transition-all duration-300 text-xs font-bold"
-                aria-label={social.name}
+                key={name}
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-12 h-12 rounded-full border-2 border-gray-600 flex items-center justify-center text-gray-400 hover:border-amber-400 hover:text-amber-400 hover:shadow-[0_0_15px_rgba(251,191,36,0.4)] hover:scale-110 transition-all duration-300"
+                aria-label={name}
               >
-                {social.icon}
+                <Icon size={22} strokeWidth={2} />
               </a>
             ))}
           </div>
-
-          {/* Legal Links */}
+          {/* Copyright + Legal links */}
           <div className="flex flex-col sm:flex-row justify-center items-center gap-4 text-sm text-gray-500">
-            <span>© 2026 DJ Goldie XO. {t('rights')}.</span>
-            <div className="flex gap-4">
-              <a href="#" className="hover:text-amber-400 transition-colors">
+            <span>© 2026 Goldie XO. {t('rights')}.</span>
+            <div className="flex gap-6">
+              <Link href="/privacy" className="hover:text-amber-400 transition-colors">
                 {t('privacy')}
-              </a>
-              <a href="#" className="hover:text-amber-400 transition-colors">
+              </Link>
+              <Link href="/terms" className="hover:text-amber-400 transition-colors">
                 {t('terms')}
-              </a>
+              </Link>
             </div>
           </div>
         </div>

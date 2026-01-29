@@ -3,12 +3,13 @@
 import { useState } from 'react';
 import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
+import Link from 'next/link';
 import { Button } from '@/components/ui/button';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { GoldHeart } from '@/components/GoldHeart';
 import { Play, Pause } from 'lucide-react';
+import { releases } from '@/shared/mixes';
 
-// Lazy load Footer component
 const Footer = dynamic(() => import('@/components/Footer').then(mod => ({ default: mod.Footer })), {
   ssr: true,
 });
@@ -21,29 +22,6 @@ const platforms = [
   { name: 'beatport', icon: 'B', url: 'https://beatport.com' },
   { name: 'tidal', icon: 'T', url: 'https://tidal.com' },
 ];
-
-const releases = {
-  featured: [
-    { id: 1, title: 'Latin House Fusion Mix 2024', type: 'Mix', duration: '62:45', plays: '125K' },
-    { id: 2, title: 'NYC Underground Sessions', type: 'Mix', duration: '58:30', plays: '98K' },
-    { id: 3, title: 'Neon Nights EP', type: 'EP', duration: '24:15', plays: '156K' },
-  ],
-  latestMixes: [
-    { id: 4, title: 'Summer Vibes Latin Mix', type: 'Mix', duration: '55:20', plays: '87K' },
-    { id: 5, title: 'Brooklyn Warehouse Set', type: 'Live Set', duration: '72:00', plays: '142K' },
-    { id: 6, title: 'EDM Meets Reggaeton', type: 'Mix', duration: '48:35', plays: '76K' },
-  ],
-  latinHouse: [
-    { id: 7, title: 'Ritmo y Pasión', type: 'Single', duration: '5:45', plays: '234K' },
-    { id: 8, title: 'Baila Conmigo', type: 'Single', duration: '6:12', plays: '198K' },
-    { id: 9, title: 'Latin House Essentials', type: 'Mix', duration: '64:30', plays: '112K' },
-  ],
-  edm: [
-    { id: 10, title: 'Electric Dreams', type: 'Single', duration: '4:58', plays: '267K' },
-    { id: 11, title: 'Festival Anthems 2024', type: 'Mix', duration: '68:15', plays: '189K' },
-    { id: 12, title: 'Bass & Beats', type: 'EP', duration: '18:45', plays: '145K' },
-  ],
-};
 
 export default function Music() {
   const t = useTranslations('music');
@@ -203,9 +181,11 @@ export default function Music() {
 
                       {/* Info */}
                       <div className="mb-4">
-                        <h3 className="text-lg font-bold text-white mb-1 group-hover:text-amber-400 transition-colors">
-                          {release.title}
-                        </h3>
+                        <Link href={`/mixes/${release.slug}`} className="block group/link">
+                          <h3 className="text-lg font-bold text-white mb-1 group-hover:text-amber-400 group/link-hover:text-amber-400 transition-colors">
+                            {release.title}
+                          </h3>
+                        </Link>
                         <div className="flex items-center gap-2 text-sm text-gray-400">
                           <span>{release.type}</span>
                           <span>•</span>
@@ -215,11 +195,15 @@ export default function Music() {
                         </div>
                       </div>
 
-                      {/* Play Button */}
+                      {/* Play / View Button */}
                       <Button
+                        asChild
                         className="w-full bg-gradient-to-r from-amber-500 to-yellow-600 hover:from-amber-600 hover:to-yellow-700 text-black font-bold"
                       >
-                        {tReleases('playNow')}
+                        <Link href={`/mixes/${release.slug}`}>
+                          <Play size={16} className="mr-2" />
+                          {tReleases('playNow')}
+                        </Link>
                       </Button>
                     </div>
                   ))}

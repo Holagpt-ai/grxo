@@ -38,9 +38,42 @@
     "text": "From the streets of NYC to the world's biggest stages, discover the journey of DJ Goldie XO. A story of passion, rhythm, and breaking boundaries.",
     "preorder": "Preorder Now",
     "description": "From the streets of NYC to the world's biggest stages, discover the journey of DJ Goldie XO. A story of passion, rhythm, and breaking boundaries.",
-    "availableSoon": "Available Soon"
+    "availableSoon": "Available Soon",
+    "preview": {
+      "title": "Preview",
+      "download": "Download PDF"
+    }
+  },
+  "contact": {
+    "title": "Contact Me",
+    "subtitle": "Let's connect",
+    "description": "Get in touch for bookings, press, or general inquiries.",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "subjectBookings": "Bookings",
+      "subjectPress": "Press",
+      "subjectGeneral": "General inquiry",
+      "message": "Message",
+      "send": "Send message",
+      "sending": "Sending...",
+      "success": "Message sent! We'll get back to you soon."
+    },
+    "info": {
+      "title": "Contact info",
+      "bookings": "Booking inquiry",
+      "bookingsEmail": "bookings@goldiexo.com",
+      "management": "Management",
+      "managementEmail": "management@goldiexo.com",
+      "press": "Press",
+      "pressEmail": "press@goldiexo.com"
+    }
   },
   "footer": {
+    "quickLinks": "Quick Links",
+    "legal": "Legal",
+    "sitemap": "Sitemap",
     "subscribe": "Subscribe to get the latest mixes, tour dates, and exclusive content",
     "button": "Subscribe",
     "copyright": "© 2026 DJ Goldie XO. All rights reserved.",

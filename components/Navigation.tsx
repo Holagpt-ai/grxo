@@ -40,7 +40,7 @@ export function Navigation() {
             prefetch={true}
             className="text-2xl font-bold bg-gradient-to-r from-amber-400 to-yellow-500 bg-clip-text text-transparent hover:from-amber-300 hover:to-yellow-400 transition-all"
           >
-            GXO
+            Goldie XO
           </Link>
 
           {/* Desktop Navigation */}
@@ -72,15 +72,9 @@ export function Navigation() {
             })}
           </div>
 
-          {/* Language Toggle & Social Icons */}
+          {/* Language Toggle — social icons add in later sprint */}
           <div className="hidden md:flex items-center gap-4">
             <LanguageToggle />
-            <div className="flex items-center gap-3">
-              {/* Social media icons placeholder */}
-              <SocialIcon icon="youtube" />
-              <SocialIcon icon="instagram" />
-              <SocialIcon icon="spotify" />
-            </div>
           </div>
 
           {/* Mobile Menu Button */}
@@ -128,19 +122,5 @@ export function Navigation() {
         )}
       </div>
     </nav>
-  );
-}
-
-function SocialIcon({ icon }: { icon: string }) {
-  return (
-    <a
-      href="#"
-      className="text-gray-400 hover:text-amber-400 transition-colors"
-      aria-label={icon}
-    >
-      <div className="w-5 h-5 rounded-full border border-current flex items-center justify-center text-xs">
-        {icon[0].toUpperCase()}
-      </div>
-    </a>
   );
 }

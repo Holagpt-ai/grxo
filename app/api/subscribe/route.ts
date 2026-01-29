@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { z } from 'zod';
 
-// Zod schema for email validation
+// Zod schema for email validation (trim whitespace)
 const subscribeSchema = z.object({
-  email: z.string().email('Invalid email address').min(1, 'Email is required'),
+  email: z.string().trim().min(1, 'Email is required').email('Invalid email address'),
 });
 
 export async function POST(request: NextRequest) {
@@ -22,37 +22,16 @@ export async function POST(request: NextRequest) {
 
     const { email } = validationResult.data;
 
-    // TODO: Integrate with email service (Resend, Mailchimp, etc.)
-    // Example with Resend:
+    // Log to console (dev). For production, set RESEND_API_KEY and use Resend, or integrate Mailchimp/etc.
+    console.log('[Subscribe] New subscription:', email);
+
+    // Optional: Resend welcome email when RESEND_API_KEY is set
+    // import { Resend } from 'resend';
     // const resend = new Resend(process.env.RESEND_API_KEY);
-    // await resend.emails.send({
-    //   from: 'DJ Goldie XO <newsletter@djgoldiexo.com>',
-    //   to: email,
-    //   subject: 'Welcome to DJ Goldie XO Newsletter!',
-    //   html: '<p>Thanks for subscribing...</p>',
-    // });
-
-    // Example with Mailchimp:
-    // const response = await fetch(`https://${process.env.MAILCHIMP_SERVER}.api.mailchimp.com/3.0/lists/${process.env.MAILCHIMP_LIST_ID}/members`, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Authorization': `Bearer ${process.env.MAILCHIMP_API_KEY}`,
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: JSON.stringify({
-    //     email_address: email,
-    //     status: 'subscribed',
-    //   }),
-    // });
-
-    // Placeholder: Log email for now (remove in production)
-    console.log('Newsletter subscription:', email);
-
-    // Simulate API delay
-    await new Promise(resolve => setTimeout(resolve, 500));
+    // await resend.emails.send({ from: '...', to: email, subject: '...', html: '...' });
 
     return NextResponse.json(
-      { message: 'Successfully subscribed to newsletter', email },
+      { message: 'Successfully subscribed', email },
       { status: 200 }
     );
   } catch (error) {

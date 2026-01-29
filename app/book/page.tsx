@@ -4,7 +4,7 @@ import { useTranslations } from 'next-intl';
 import dynamic from 'next/dynamic';
 import { Button } from '@/components/ui/button';
 import { GoldHeart } from '@/components/GoldHeart';
-import { ShoppingBag, ExternalLink } from 'lucide-react';
+import { ShoppingBag, ExternalLink, Download } from 'lucide-react';
 import Link from 'next/link';
 import { toast } from 'sonner';
 
@@ -112,6 +112,34 @@ export default function Book() {
               {tSynopsis('text')}
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* PDF Preview & Download */}
+      <section className="py-24 bg-gradient-to-b from-black via-gray-900 to-black">
+        <div className="container max-w-4xl mx-auto px-4">
+          <div className="flex items-center gap-3 mb-6">
+            <GoldHeart size={35} />
+            <h2 className="text-4xl font-bold text-amber-400">{t('preview.title')}</h2>
+          </div>
+          <p className="text-gray-400 mb-6">
+            Read a sample below or download the PDF to your device.
+          </p>
+          <div className="rounded-xl overflow-hidden border border-amber-500/30 bg-gray-900/50 mb-6">
+            <iframe
+              src="/pdfs/TheBeatGoesOn.pdf"
+              title="The Beat Goes On – PDF Preview"
+              width="100%"
+              height={800}
+              className="w-full min-h-[600px] md:min-h-[800px]"
+            />
+          </div>
+          <Button asChild size="lg" className="bg-amber-500 hover:bg-amber-600 text-black font-bold">
+            <a href="/pdfs/TheBeatGoesOn.pdf" download="TheBeatGoesOn.pdf">
+              <Download size={20} className="mr-2" />
+              {t('preview.download')}
+            </a>
+          </Button>
         </div>
       </section>
 
