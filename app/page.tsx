@@ -199,15 +199,15 @@ export default function Home() {
                   {tAbout('teaser')}
                 </p>
                 <Link href="/about">
-                  <Button 
-                    variant="ghost" 
+                  <Button
+                    variant="ghost"
                     className="text-amber-400 hover:text-amber-300 hover:bg-amber-500/10 font-semibold"
                   >
                     {tAbout('readMore')} →
                   </Button>
                 </Link>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </motion.section>
